@@ -1,27 +1,31 @@
 import type { ExperienceEntry } from '../../data/siteContent'
 import { RevealGroupItem } from '../motion/RevealGroup'
+import { Tag } from '../ui/Tag'
 
 interface ExperienceTimelineItemProps {
   entry: ExperienceEntry
-  isLast: boolean
+  index: number
 }
 
-export function ExperienceTimelineItem({ entry, isLast }: ExperienceTimelineItemProps) {
+export function ExperienceTimelineItem({ entry, index }: ExperienceTimelineItemProps) {
   return (
-    <RevealGroupItem as="li" className="relative flex gap-stack-sm pb-stack-md last:pb-0">
-      <div className="flex w-3 shrink-0 flex-col items-center">
-        <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-sage" />
-        {!isLast && <span className="mt-2 w-px flex-1 bg-border" aria-hidden="true" />}
-      </div>
+    <RevealGroupItem
+      as="li"
+      className="group -mx-4 flex flex-col gap-stack-xs rounded-lg px-4 py-stack-sm transition-colors duration-300 first:pt-0 last:pb-0 hover:bg-surface sm:flex-row sm:items-baseline sm:gap-stack-md"
+    >
+      <span className="font-display text-sm text-lavender-deep sm:w-10 sm:shrink-0">
+        {String(index + 1).padStart(2, '0')}
+      </span>
 
-      <div className="flex flex-1 flex-col gap-1.5 sm:flex-row sm:gap-stack-sm">
-        <span className="shrink-0 text-sm text-ink-soft sm:w-32">{entry.period}</span>
-        <div className="flex flex-col gap-1">
-          <h3 className="font-display text-lg text-ink">
-            {entry.role} <span className="text-ink-soft">· {entry.org}</span>
-          </h3>
-          <p className="max-w-xl text-ink-soft">{entry.description}</p>
+      <div className="flex flex-1 flex-col gap-2">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+          <h3 className="font-display text-xl text-ink">{entry.role}</h3>
+          <span className="shrink-0 text-sm text-ink-soft">{entry.period}</span>
         </div>
+        <div>
+          <Tag tone="lavender">{entry.org}</Tag>
+        </div>
+        <p className="max-w-xl text-ink-soft">{entry.description}</p>
       </div>
     </RevealGroupItem>
   )

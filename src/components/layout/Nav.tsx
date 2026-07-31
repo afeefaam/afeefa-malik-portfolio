@@ -23,7 +23,7 @@ export function Nav() {
   }
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/70 bg-bg/80 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-lavender/20 bg-surface/65 shadow-soft-sm backdrop-blur-xl">
       <Container as="nav" className="flex h-20 items-center justify-between" aria-label="Primary">
         <Link
           to="/"

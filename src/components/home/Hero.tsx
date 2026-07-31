@@ -3,9 +3,9 @@ import { hero } from '../../data/siteContent'
 import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion'
 import { scrollToSection } from '../../lib/scrollToSection'
 import { Button } from '../ui/Button'
-import { ImagePlaceholder } from '../ui/ImagePlaceholder'
 import { Container } from '../ui/Container'
 import { fadeUp } from '../motion/variants'
+import { HeroVisual } from './HeroVisual'
 
 const containerVariants = {
   hidden: {},
@@ -70,20 +70,9 @@ export function Hero() {
           </motion.div>
         </motion.div>
 
-        <motion.div
-          className="md:col-span-5"
-          initial={reducedMotion ? undefined : { opacity: 0, scale: 0.96 }}
-          animate={reducedMotion ? undefined : { opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, ease: [0.2, 0, 0, 1], delay: 0.2 }}
-        >
-          <ImagePlaceholder
-            alt="Abstract soft-toned composition representing calm, considered design work"
-            tone="sage"
-            radius="xl"
-            aspectRatio="4 / 5"
-            className="shadow-soft"
-          />
-        </motion.div>
+        <div className="md:col-span-5">
+          <HeroVisual />
+        </div>
       </Container>
     </section>
   )

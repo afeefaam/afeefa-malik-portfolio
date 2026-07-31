@@ -68,15 +68,43 @@ export function ContentBlockRenderer({ block }: ContentBlockRendererProps) {
       )
 
     case 'quote':
+      // Deliberately breaks the standard paragraph column width — a pull
+      // quote should read as a pause in the story, not another text block.
       return (
-        <blockquote className="max-w-2xl border-l-2 border-clay py-1 pl-stack-sm">
-          <p className="font-display text-display-3 text-ink">“{block.text}”</p>
+        <blockquote className="max-w-3xl py-stack-xs">
+          <span aria-hidden="true" className="font-display text-5xl leading-none text-lavender">
+            “
+          </span>
+          <p className="font-display text-display-3 text-ink">{block.text}</p>
           {block.attribution && (
             <cite className="mt-stack-xs block text-sm not-italic text-ink-soft">
               — {block.attribution}
             </cite>
           )}
         </blockquote>
+      )
+
+    case 'compare':
+      return (
+        <div className="grid grid-cols-1 gap-stack-sm sm:grid-cols-2">
+          {(
+            [
+              { image: block.before, label: block.beforeLabel ?? 'Before' },
+              { image: block.after, label: block.afterLabel ?? 'After' },
+            ] as const
+          ).map(({ image, label }) => (
+            <div key={label} className="relative">
+              {image.src ? (
+                <img src={image.src} alt={image.alt} className="w-full rounded-xl object-cover" style={{ aspectRatio: '4 / 3' }} />
+              ) : (
+                <ImagePlaceholder alt={image.alt} tone={image.tone} radius="xl" aspectRatio="4 / 3" />
+              )}
+              <span className="absolute left-3 top-3 rounded-full border border-white/50 bg-surface/70 px-3 py-1 text-xs font-medium text-ink shadow-soft-sm backdrop-blur-md">
+                {label}
+              </span>
+            </div>
+          ))}
+        </div>
       )
 
     case 'list':

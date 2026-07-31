@@ -1,5 +1,5 @@
-type Tone = 'sage' | 'clay' | 'ink' | 'neutral'
-type Radius = 'md' | 'lg' | 'xl'
+type Tone = 'sage' | 'clay' | 'ink' | 'neutral' | 'lavender'
+type Radius = 'none' | 'md' | 'lg' | 'xl'
 
 interface ImagePlaceholderProps {
   alt: string
@@ -14,9 +14,11 @@ const TONE_GRADIENTS: Record<Tone, string> = {
   clay: 'radial-gradient(120% 120% at 85% 20%, #F3EDE2 0%, #E4E7DD 50%, #FAF8F5 100%)',
   ink: 'radial-gradient(120% 120% at 20% 80%, #E6E0D6 0%, #F1ECE3 50%, #FAF8F5 100%)',
   neutral: 'radial-gradient(120% 120% at 50% 30%, #F1ECE3 0%, #FAF8F5 60%, #FFFFFF 100%)',
+  lavender: 'radial-gradient(120% 120% at 25% 20%, #ECE7F3 0%, #F3EDE2 50%, #FAF8F5 100%)',
 }
 
 const RADIUS_CLASSES: Record<Radius, string> = {
+  none: 'rounded-none',
   md: 'rounded-md',
   lg: 'rounded-lg',
   xl: 'rounded-xl',

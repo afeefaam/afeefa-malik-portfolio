@@ -17,7 +17,7 @@ function MetaField({ label, value }: { label: string; value: string }) {
 
 export function CaseStudyMeta({ meta, links }: CaseStudyMetaProps) {
   return (
-    <div className="flex flex-col gap-stack-sm rounded-lg bg-surface p-stack-sm shadow-soft-sm">
+    <div className="flex flex-col gap-stack-sm rounded-lg border border-border/60 bg-surface/80 p-stack-sm shadow-soft-sm backdrop-blur-md">
       {meta?.role && <MetaField label="Role" value={meta.role} />}
       {meta?.timeline && <MetaField label="Timeline" value={meta.timeline} />}
       {meta?.team && <MetaField label="Team" value={meta.team} />}

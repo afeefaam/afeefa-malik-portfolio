@@ -280,10 +280,16 @@ export const projects: Project[] = [
             kind: 'paragraph',
             text: 'Rebuilt six core components — search modal, seat-availability badge, course card, filter panel, pagination, and the registration confirmation flow — each shipped with both a Figma spec and annotated ARIA behavior.',
           },
-          { kind: 'imageGrid', images: [
-            { src: null, alt: 'Before and after of the seat-availability badge component', tone: 'ink' },
-            { src: null, alt: 'Rebuilt course-search modal with visible focus states', tone: 'neutral' },
-          ] },
+          {
+            kind: 'compare',
+            before: { src: null, alt: 'Original seat-availability indicator shown only as a colored dot', tone: 'ink' },
+            after: { src: null, alt: 'Rebuilt seat-availability badge with an icon, text label, and seat count', tone: 'sage' },
+          },
+          {
+            kind: 'image',
+            image: { src: null, alt: 'Rebuilt course-search modal with a visible focus ring', tone: 'neutral' },
+            caption: 'The rebuilt course-search modal, now with a visible focus ring and proper labeling.',
+          },
         ],
       },
       {

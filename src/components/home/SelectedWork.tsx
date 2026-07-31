@@ -31,8 +31,15 @@ export function SelectedWork() {
         <RevealGroup as="div" className="mt-stack-lg grid grid-cols-1 gap-x-stack-md gap-y-stack-lg md:grid-cols-12">
           {projects.map((project, index) => {
             const { span, aspect } = layoutFor(index, projects.length)
+            const isLead = index === 0
             return (
-              <RevealGroupItem key={project.id} className={span}>
+              <RevealGroupItem key={project.id} className={`${span} ${isLead ? 'relative' : ''}`}>
+                {isLead && (
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -inset-8 -z-10 rounded-full bg-lavender/20 blur-3xl"
+                  />
+                )}
                 <ProjectCard project={project} aspectRatio={aspect} />
               </RevealGroupItem>
             )

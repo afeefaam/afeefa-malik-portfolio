@@ -10,7 +10,7 @@ export interface ProjectImage {
   /** null renders an ImagePlaceholder instead of a real <img>. */
   src: string | null
   alt: string
-  tone?: 'sage' | 'clay' | 'ink' | 'neutral'
+  tone?: 'sage' | 'clay' | 'ink' | 'neutral' | 'lavender'
 }
 
 export type ContentBlock =
@@ -21,6 +21,7 @@ export type ContentBlock =
   | { kind: 'statGrid'; stats: { value: string; label: string }[] }
   | { kind: 'quote'; text: string; attribution?: string }
   | { kind: 'list'; items: string[] }
+  | { kind: 'compare'; before: ProjectImage; after: ProjectImage; beforeLabel?: string; afterLabel?: string }
 
 export type CaseStudySectionType =
   | 'overview'

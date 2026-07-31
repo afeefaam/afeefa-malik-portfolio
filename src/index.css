@@ -28,6 +28,11 @@
   --color-sage-soft: #E4E7DD;
   --color-clay: #D8CDB9;
   --color-clay-soft: #F3EDE2;
+  --color-lavender: #AFA1C9;
+  --color-lavender-soft: #ECE7F3;
+  /* Darker than --color-lavender specifically for text/icons on the cream
+     background — the light accent tone falls short of 4.5:1 AA contrast. */
+  --color-lavender-deep: #746198;
 
   /* Typography */
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;

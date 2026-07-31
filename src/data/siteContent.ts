@@ -1,10 +1,12 @@
 // PLACEHOLDER CONTENT — everything in this file is realistic example copy,
 // not final. Replace with Afeefa's real bio, experience, and contact details.
 
+import type { ProjectImage } from './projects.types'
+
 export const person = {
   name: 'Afeefa Malik',
   role: 'UX Designer & Computer Science Student',
-  email: 'hello@afeefamalik.com', // PLACEHOLDER
+  email: 'afeefam.am@gmail.com', // PLACEHOLDER
 }
 
 export const hero = {
@@ -14,6 +16,15 @@ export const hero = {
     "I study computer science and design interfaces — trying to find the quiet, obvious solution underneath a complicated problem, then build it well enough that no one notices the work it took.",
   primaryCta: { label: 'Selected work', href: '#work' },
   secondaryCta: { label: 'About me', href: '#about' },
+}
+
+// Hero's layered device mockups. Swap `src: null` for a real screenshot path
+// (e.g. import shot from '../assets/images/wayfind-browser.png') once you
+// have one; leaving it null keeps the soft placeholder treatment. `browser`
+// fills a landscape browser-window frame, `phone` fills a portrait phone frame.
+export const heroVisual: { browser: ProjectImage; phone: ProjectImage } = {
+  browser: { src: null, alt: 'Browser preview of a recent case study', tone: 'lavender' },
+  phone: { src: null, alt: 'Mobile screen preview of an earlier project', tone: 'sage' },
 }
 
 export const about = {
@@ -55,9 +66,9 @@ export interface ExperienceEntry {
 // PLACEHOLDER — replace with real roles/internships/coursework
 export const experience: ExperienceEntry[] = [
   {
-    role: 'UX Design Intern',
-    org: 'Company Name',
-    period: '2025 — Present',
+    role: 'Web Design Student',
+    org: 'BlackBerry',
+    period: 'May2026 — Aug 2026',
     description: 'Designing end-to-end flows for a small product team, from research through shipped UI.',
   },
   {

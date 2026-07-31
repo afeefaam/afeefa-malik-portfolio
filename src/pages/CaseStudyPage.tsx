@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { CaseStudyHero } from '../components/case-study/CaseStudyHero'
 import { CaseStudyMeta } from '../components/case-study/CaseStudyMeta'
 import { CaseStudySection } from '../components/case-study/CaseStudySection'
+import { CaseStudySectionNav } from '../components/case-study/CaseStudySectionNav'
 import { ConfidentialNotice } from '../components/case-study/ConfidentialNotice'
 import { Footer } from '../components/layout/Footer'
 import { Nav } from '../components/layout/Nav'
@@ -34,20 +35,32 @@ function CaseStudyContent({ project }: { project: NonNullable<ReturnType<typeof 
       <main className="bg-bg pt-20">
         <CaseStudyHero project={project} />
 
-        <div className="pb-stack-md">
-          <Container>
-            <div className="max-w-sm">
-              <CaseStudyMeta meta={project.meta} links={project.links} />
+        {project.isConfidential ? (
+          <>
+            <Container>
+              <div className="max-w-sm pb-stack-md">
+                <CaseStudyMeta meta={project.meta} links={project.links} />
+              </div>
+            </Container>
+            <ConfidentialNotice note={project.confidentialNote} />
+          </>
+        ) : (
+          <Container className="pb-stack-lg">
+            <div className="grid grid-cols-1 gap-stack-lg md:grid-cols-12">
+              <aside className="md:col-span-3">
+                <div className="flex flex-col gap-stack-sm md:sticky md:top-28">
+                  <CaseStudyMeta meta={project.meta} links={project.links} />
+                  <CaseStudySectionNav sections={project.sections} />
+                </div>
+              </aside>
+
+              <div className="md:col-span-8 md:col-start-5">
+                {project.sections.map((section, index) => (
+                  <CaseStudySection key={section.type} section={section} index={index} />
+                ))}
+              </div>
             </div>
           </Container>
-        </div>
-
-        {project.isConfidential ? (
-          <ConfidentialNotice note={project.confidentialNote} />
-        ) : (
-          project.sections.map((section) => (
-            <CaseStudySection key={section.type} section={section} />
-          ))
         )}
 
         <section className="border-t border-border py-stack-md">

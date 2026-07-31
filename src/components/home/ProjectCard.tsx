@@ -15,7 +15,9 @@ export function ProjectCard({ project, aspectRatio = '4 / 5', className = '' }: 
       to={`/work/${project.slug}`}
       className={`group flex flex-col gap-stack-xs ${className}`}
     >
-      <div className="relative overflow-hidden rounded-xl">
+      <div
+        className="relative overflow-hidden rounded-xl shadow-none transition-[transform,box-shadow] duration-500 ease-out group-hover:-translate-y-1.5 group-hover:shadow-soft-lg group-focus-visible:-translate-y-1.5 group-focus-visible:shadow-soft-lg motion-reduce:transition-none motion-reduce:group-hover:translate-y-0"
+      >
         {project.coverImage.src ? (
           <img
             src={project.coverImage.src}
@@ -35,15 +37,23 @@ export function ProjectCard({ project, aspectRatio = '4 / 5', className = '' }: 
         )}
 
         {project.isConfidential && (
-          <span className="absolute left-4 top-4 rounded-full bg-bg/90 px-3 py-1 text-xs font-medium text-ink-soft backdrop-blur-sm">
+          <span className="absolute left-4 top-4 rounded-full bg-lavender-soft/85 px-3 py-1 text-xs font-medium text-ink backdrop-blur-sm">
             Confidential
           </span>
         )}
+
+        <span
+          className="absolute bottom-4 left-4 flex translate-y-2 items-center gap-1.5 rounded-full border border-white/50 bg-surface/70 px-4 py-2 text-xs font-medium text-ink opacity-0 shadow-soft-sm backdrop-blur-md transition-[opacity,transform] duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 motion-reduce:transition-none"
+          aria-hidden="true"
+        >
+          View case study
+          <span aria-hidden="true">→</span>
+        </span>
       </div>
 
       <div className="flex flex-col gap-1.5">
         <div className="flex items-center justify-between gap-4">
-          <h3 className="font-display text-xl text-ink transition-colors group-hover:text-sage">
+          <h3 className="font-display text-xl text-ink transition-colors group-hover:text-lavender-deep">
             {project.title}
           </h3>
           <span className="shrink-0 text-sm text-ink-soft">{project.year}</span>
