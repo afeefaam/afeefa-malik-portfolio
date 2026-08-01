@@ -1,4 +1,4 @@
-export type ProjectLinkKind = 'figma' | 'prototype' | 'pdf' | 'github' | 'live'
+export type ProjectLinkKind = 'figma' | 'prototype' | 'pdf' | 'github' | 'live' | 'behance'
 
 export interface ProjectLink {
   kind: ProjectLinkKind
@@ -53,10 +53,15 @@ export interface Project {
   title: string
   tagline: string
   tags: string[]
+  /** Used on the homepage project card (and as a fallback for the case study banner if heroImage isn't set). */
   coverImage: ProjectImage
+  /** Optional wide (21:9) image for the case study banner — independent of coverImage, since they're rarely the same crop. */
+  heroImage?: ProjectImage
   year: string
   isConfidential: boolean
   isFeatured?: boolean
+  /** Optional recognition, e.g. a hackathon/sprint award — shown on the card and in the case study sidebar. */
+  award?: string
   links: ProjectLink[]
   meta?: CaseStudyMeta
   /** Empty when isConfidential is true — ConfidentialNotice renders instead. */

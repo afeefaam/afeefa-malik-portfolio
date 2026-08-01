@@ -9,9 +9,26 @@ export const person = {
   email: 'afeefam.am@gmail.com', // PLACEHOLDER
 }
 
+// Portrait shown in the About section. Swap `src: null` for a real photo
+// (e.g. import photo from '../assets/images/portrait.jpg') when ready.
+export const portrait: ProjectImage = {
+  src: null,
+  alt: `Portrait of ${person.name}`,
+  tone: 'lavender',
+}
+
 export const hero = {
   eyebrow: 'UX Designer · CS Student',
-  headline: 'Designing digital experiences that make complexity feel effortless.',
+  greeting: "Hi, I'm Afeefa.",
+  // Cycled by the typewriter on the second headline line. Kept short and
+  // parallel in structure — each one stands alone as "Hi, I'm Afeefa. ___."
+  roles: [
+    'UX Designer.',
+    'Computer Science Student.',
+    'Frontend Developer.',
+    'Community Builder.',
+    'Hackathon Enthusiast.',
+  ],
   subhead:
     "I study computer science and design interfaces — trying to find the quiet, obvious solution underneath a complicated problem, then build it well enough that no one notices the work it took.",
   primaryCta: { label: 'Selected work', href: '#work' },
@@ -27,32 +44,56 @@ export const heroVisual: { browser: ProjectImage; phone: ProjectImage } = {
   phone: { src: null, alt: 'Mobile screen preview of an earlier project', tone: 'sage' },
 }
 
+// Second visual beat in About — a small photo/moment placeholder alongside
+// the hackathon story. Swap `src: null` for a real photo when ready.
+export const hackathonImage: ProjectImage = {
+  src: null,
+  alt: 'PLACEHOLDER — replace with a real photo from a hackathon',
+  tone: 'clay',
+}
+
 export const about = {
   eyebrow: 'About',
-  title: 'Design is how I think out loud.',
-  paragraphs: [
-    // PLACEHOLDER — replace with Afeefa's real story
-    "I came to design sideways — through code first. Learning how software actually gets built changed how I look at every interface: not as a picture, but as a series of decisions someone had to make under constraints.",
-    'That mix is still how I work. I sketch and prototype like a designer, but I read a system closely enough to know what a "simple" change actually costs — which makes the case for restraint a lot easier to argue for.',
+  title: "Hi, I'm Afeefa.",
+  intro:
+    "I'm a computer science student with a UX design minor — currently interning, always curious, and a little too invested in whether a button actually looks clickable.",
+
+  journey: {
+    heading: 'How I got here',
+    paragraph:
+      "I didn't set out to become a designer. I started as a computer science student, writing code and mostly thinking about whether things worked. Somewhere around a particularly confusing error message, I started asking a different question — not just does this work, but does this make sense to the person using it?\n\nThat question turned into a UX minor, then an internship, then a habit I can't really turn off: noticing the small friction points in everyday apps and wondering how they could feel one decision simpler.",
+  },
+
+  pullQuote: 'Not just does this work — does this make sense to the person using it?',
+
+  excites: {
+    heading: 'What actually gets me excited',
+    paragraph:
+      "I like sitting at the overlap of technical and human. I want to know why something is hard to build, not just that it is — the best answer to a design problem usually lives somewhere between what's easy to design and what's actually possible to ship.\n\nAnd I'll admit it: I notice things most people don't. The form field that explains itself without a tooltip. The button that feels clickable versus the one that just technically is one. I think about that stuff more than is probably normal.",
+  },
+
+  hackathons: {
+    heading: 'Built under pressure',
+    paragraph:
+      "Some of my favorite work has come out of 24 hours, not 24 weeks. I love hackathons — messy problems, a team of near-strangers, and a deadline that doesn't care how attached you are to your first idea. Setlist, one of the case studies on this site, came out of exactly that.",
+  },
+
+  community: {
+    heading: 'Organizing, always',
+    paragraph:
+      "Outside of coursework, I spend a lot of time organizing — events, initiatives, the unglamorous logistics that make a community actually run. It's closer to UX than people expect: most of it is anticipating what people need before they have to ask.",
+  },
+
+  currentlyLearning: [
+    'How to defend a design decision in a room full of engineers, without caving immediately or digging in for no reason',
+    'When "good enough" is actually the right call, not a compromise',
+    'How far a design system can bend before it breaks',
   ],
-  values: [
-    {
-      title: 'Clarity over cleverness',
-      description: 'If a user has to think twice, the design has more work to do — not the user.',
-    },
-    {
-      title: 'Close the loop',
-      description: 'Research, design, and code are one conversation. I try to stay fluent in all three.',
-    },
-    {
-      title: 'Small, honest details',
-      description: 'The parts no one asked for are usually the parts people remember.',
-    },
-  ],
+
   funFacts: [
-    'Currently learning how far a design system can bend before it breaks',
     'Reads interface copy out loud before shipping it',
-    'Keeps a running list of the calmest apps on her phone',
+    'Has pulled an all-nighter for a hackathon and would absolutely do it again',
+    'Keeps a running list of the calmest, most "figured-out" feeling apps on her phone',
   ],
 }
 

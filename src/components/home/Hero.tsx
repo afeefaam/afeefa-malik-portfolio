@@ -6,6 +6,7 @@ import { Button } from '../ui/Button'
 import { Container } from '../ui/Container'
 import { fadeUp } from '../motion/variants'
 import { HeroVisual } from './HeroVisual'
+import { TypewriterLine } from './TypewriterLine'
 
 const containerVariants = {
   hidden: {},
@@ -40,7 +41,8 @@ export function Hero() {
             variants={reducedMotion ? undefined : fadeUp}
             className="font-display text-display-2 text-ink md:text-display-1"
           >
-            {hero.headline}
+            <span className="block">{hero.greeting}</span>
+            <TypewriterLine phrases={hero.roles} />
           </motion.h1>
 
           <motion.p

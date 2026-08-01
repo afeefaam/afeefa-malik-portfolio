@@ -9,6 +9,11 @@ interface CaseStudyHeroProps {
 }
 
 export function CaseStudyHero({ project }: CaseStudyHeroProps) {
+  // Deliberately not falling back to coverImage.src here — the homepage
+  // card crop and the case study's wide (21:9) banner are rarely the same
+  // shot, so a hero image only appears once heroImage is explicitly set.
+  const banner = project.heroImage ?? { ...project.coverImage, src: null }
+
   return (
     <header className="pt-stack-lg pb-stack-lg">
       <Container>
@@ -26,13 +31,22 @@ export function CaseStudyHero({ project }: CaseStudyHeroProps) {
         </RevealOnScroll>
 
         <RevealOnScroll delay={0.1} className="mt-stack-md">
-          <ImagePlaceholder
-            alt={project.coverImage.alt}
-            tone={project.coverImage.tone}
-            radius="xl"
-            aspectRatio="21 / 9"
-            className="shadow-soft"
-          />
+          {banner.src ? (
+            <img
+              src={banner.src}
+              alt={banner.alt}
+              className="w-full rounded-xl object-cover shadow-soft"
+              style={{ aspectRatio: '21 / 9' }}
+            />
+          ) : (
+            <ImagePlaceholder
+              alt={banner.alt}
+              tone={banner.tone}
+              radius="xl"
+              aspectRatio="21 / 9"
+              className="shadow-soft"
+            />
+          )}
         </RevealOnScroll>
       </Container>
     </header>

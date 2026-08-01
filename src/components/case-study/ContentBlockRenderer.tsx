@@ -43,15 +43,25 @@ export function ContentBlockRenderer({ block }: ContentBlockRendererProps) {
     case 'imageGrid':
       return (
         <div className="grid grid-cols-1 gap-stack-sm sm:grid-cols-2">
-          {block.images.map((image) => (
-            <ImagePlaceholder
-              key={image.alt}
-              alt={image.alt}
-              tone={image.tone}
-              radius="lg"
-              aspectRatio="4 / 3"
-            />
-          ))}
+          {block.images.map((image) =>
+            image.src ? (
+              <img
+                key={image.alt}
+                src={image.src}
+                alt={image.alt}
+                className="w-full rounded-lg object-cover"
+                style={{ aspectRatio: '4 / 3' }}
+              />
+            ) : (
+              <ImagePlaceholder
+                key={image.alt}
+                alt={image.alt}
+                tone={image.tone}
+                radius="lg"
+                aspectRatio="4 / 3"
+              />
+            ),
+          )}
         </div>
       )
 

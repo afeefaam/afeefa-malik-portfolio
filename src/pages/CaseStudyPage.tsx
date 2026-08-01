@@ -39,7 +39,7 @@ function CaseStudyContent({ project }: { project: NonNullable<ReturnType<typeof 
           <>
             <Container>
               <div className="max-w-sm pb-stack-md">
-                <CaseStudyMeta meta={project.meta} links={project.links} />
+                <CaseStudyMeta meta={project.meta} links={project.links} award={project.award} />
               </div>
             </Container>
             <ConfidentialNotice note={project.confidentialNote} />
@@ -49,7 +49,7 @@ function CaseStudyContent({ project }: { project: NonNullable<ReturnType<typeof 
             <div className="grid grid-cols-1 gap-stack-lg md:grid-cols-12">
               <aside className="md:col-span-3">
                 <div className="flex flex-col gap-stack-sm md:sticky md:top-28">
-                  <CaseStudyMeta meta={project.meta} links={project.links} />
+                  <CaseStudyMeta meta={project.meta} links={project.links} award={project.award} />
                   <CaseStudySectionNav sections={project.sections} />
                 </div>
               </aside>

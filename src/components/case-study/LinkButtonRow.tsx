@@ -7,6 +7,7 @@ const LINK_LABELS: Record<ProjectLinkKind, string> = {
   pdf: 'View PDF',
   github: 'GitHub',
   live: 'Live Site',
+  behance: 'View Behance',
 }
 
 interface LinkButtonRowProps {

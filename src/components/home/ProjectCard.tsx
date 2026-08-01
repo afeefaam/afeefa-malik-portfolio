@@ -42,6 +42,12 @@ export function ProjectCard({ project, aspectRatio = '4 / 5', className = '' }: 
           </span>
         )}
 
+        {project.award && (
+          <span className="absolute right-4 top-4 rounded-full bg-surface/90 px-3 py-1 text-xs font-medium text-ink shadow-soft-sm backdrop-blur-sm">
+            {project.award}
+          </span>
+        )}
+
         <span
           className="absolute bottom-4 left-4 flex translate-y-2 items-center gap-1.5 rounded-full border border-white/50 bg-surface/70 px-4 py-2 text-xs font-medium text-ink opacity-0 shadow-soft-sm backdrop-blur-md transition-[opacity,transform] duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 motion-reduce:transition-none"
           aria-hidden="true"
