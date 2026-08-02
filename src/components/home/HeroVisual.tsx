@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { heroVisual } from '../../data/siteContent'
-import { projects } from '../../data/projects'
+import { publishedProjects } from '../../data/projects'
 import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion'
 import { BrowserMockup } from './BrowserMockup'
 import { PhoneMockup } from './PhoneMockup'
 
 const EASE = [0.2, 0, 0, 1] as const
-const featured = projects.find((project) => project.isFeatured) ?? projects[0]
+const featured = publishedProjects.find((project) => project.isFeatured) ?? publishedProjects[0]
 
 /**
  * Layered browser + phone mockups standing in for real product screenshots.
@@ -75,7 +75,7 @@ export function HeroVisual() {
           className="flex items-center gap-2 rounded-full border border-lavender/30 bg-surface/55 py-2 pl-2.5 pr-4 shadow-soft-sm backdrop-blur-lg transition-transform duration-300 hover:-translate-y-0.5 motion-reduce:transition-none"
         >
           <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-lavender" />
-          <span className="text-xs font-medium text-ink">Case study — {featured.title}</span>
+          <span className="text-xs font-medium text-ink">Case study: {featured.title}</span>
         </Link>
       </motion.div>
     </div>

@@ -20,6 +20,10 @@ export const projects: Project[] = [
     year: '2025',
     isConfidential: false,
     isFeatured: true,
+    // Held back temporarily — flip to true (or remove this line) to bring
+    // it back. Route/content stay intact; this just hides it from the
+    // public grid, featured pick, and next-project cycling.
+    isPublished: false,
     links: [
       { kind: 'figma', url: '#' },
       { kind: 'prototype', url: '#' },
@@ -36,7 +40,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'Wayfind is a wayfinding app designed for first-year students navigating a large, unevenly signed campus. It combines indoor and outdoor directions with the small, human details students actually ask about — the nearest working water fountain, which entrance is quietest between classes.',
+            text: 'Wayfind is a wayfinding app designed for first-year students navigating a large, unevenly signed campus. It combines indoor and outdoor directions with the small, human details students actually ask about: the nearest working water fountain, which entrance is quietest between classes.',
           },
           {
             kind: 'statGrid',
@@ -54,7 +58,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: "Existing campus maps were static PDFs — accurate, but useless mid-walk. New students, especially transfers and international students, described the first two weeks of a semester as quietly stressful: showing up early to every class just to have time to get lost.",
+            text: "Existing campus maps were static PDFs. Accurate, but useless mid-walk. New students, especially transfers and international students, described the first two weeks of a semester as quietly stressful: showing up early to every class just to have time to get lost.",
           },
         ],
       },
@@ -64,7 +68,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'I interviewed 11 first-year and transfer students and shadowed three of them walking to a class they had never been to. The friction wasn’t reading a map — it was translating a 2D map into a decision at a real intersection or unmarked stairwell.',
+            text: 'I interviewed 11 first-year and transfer students and shadowed three of them walking to a class they had never been to. The friction wasn’t reading a map. It was translating a 2D map into a decision at a real intersection or unmarked stairwell.',
           },
           {
             kind: 'list',
@@ -82,7 +86,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'The real product wasn’t "a map" — it was a countdown-aware companion that could say, calmly, "you have 6 minutes, go through the east door." Reframing the problem from navigation to reassurance changed almost every subsequent design decision.',
+            text: 'The real product wasn’t "a map." It was a countdown-aware companion that could say, calmly, "you have 6 minutes, go through the east door." Reframing the problem from navigation to reassurance changed almost every subsequent design decision.',
           },
         ],
       },
@@ -92,7 +96,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'Early wireframes tried to show too much at once — full building layouts, every possible route. I stripped the default view down to one instruction at a time, with the full map available but never required.',
+            text: 'Early wireframes tried to show too much at once: full building layouts, every possible route. I stripped the default view down to one instruction at a time, with the full map available but never required.',
           },
           { kind: 'imageGrid', images: [
             { src: null, alt: 'Low-fidelity wireframes exploring route instruction density', tone: 'neutral' },
@@ -117,7 +121,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'This project taught me to distrust my first framing of a problem. "Students need a better map" was true and almost entirely beside the point — what they needed was less to think about, not more information.',
+            text: 'This project taught me to distrust my first framing of a problem. "Students need a better map" was true and almost entirely beside the point. What they needed was less to think about, not more information.',
           },
         ],
       },
@@ -136,7 +140,6 @@ export const projects: Project[] = [
     },
     year: '2025',
     isConfidential: false,
-    isFeatured: true,
     links: [{ kind: 'figma', url: '#' }],
     meta: {
       role: 'UI Designer',
@@ -151,11 +154,11 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'Markaz is a platform for discovering community spaces, events, and opportunities — the kind of connection that’s hard to find just by searching. Before it could launch, it needed a public face: something that could explain what Markaz was, make it feel real, and convince a stranger to leave their email for a product that didn’t exist yet.',
+            text: 'Markaz is a platform for discovering community spaces, events, and opportunities: the kind of connection that’s hard to find just by searching. Before it could launch, it needed a public face, something that could explain what Markaz was, make it feel real, and convince a stranger to leave their email for a product that didn’t exist yet.',
           },
           {
             kind: 'paragraph',
-            text: 'I designed that face — a countdown landing experience that introduces Markaz’s visual identity and builds anticipation ahead of launch.',
+            text: 'I designed that face: a countdown landing experience that introduces Markaz’s visual identity and builds anticipation ahead of launch.',
           },
         ],
       },
@@ -173,7 +176,7 @@ export const projects: Project[] = [
               'Communicate the platform clearly',
               'Establish trust with zero track record',
               'Create real anticipation before launch',
-              'Convert that anticipation into waitlist signups — without feeling like a sales pitch',
+              'Convert that anticipation into waitlist signups, without feeling like a sales pitch',
             ],
           },
         ],
@@ -187,7 +190,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'With nothing to test yet and no users to interview, I started by looking outward — studying how early-stage startups and community-focused products handle the same problem: selling a feeling before there’s a product behind it.',
+            text: 'With nothing to test yet and no users to interview, I started by looking outward. I studied how early-stage startups and community-focused products handle the same problem: selling a feeling before there’s a product behind it.',
           },
           {
             kind: 'list',
@@ -221,7 +224,7 @@ export const projects: Project[] = [
           { kind: 'heading', text: 'Making the product feel tangible', level: 3 },
           {
             kind: 'paragraph',
-            text: 'Displaying the interface inside a device mockup let visitors picture themselves actually using Markaz, rather than reading a description of it — a small decision that did a lot to make an unlaunched product feel credible.',
+            text: 'Displaying the interface inside a device mockup let visitors picture themselves actually using Markaz, rather than reading a description of it. It was a small decision that did a lot to make an unlaunched product feel credible.',
           },
           { kind: 'heading', text: 'Guiding attention toward the waitlist', level: 3 },
           {
@@ -236,7 +239,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'I owned the UI design of the countdown experience end to end — from early concept through the final high-fidelity file in Figma.',
+            text: 'I owned the UI design of the countdown experience end to end, from early concept through the final high-fidelity file in Figma.',
           },
           {
             kind: 'list',
@@ -254,7 +257,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'The shipped design is a focused, single-purpose landing page: a clear introduction to Markaz, a device mockup that makes the product feel real, and one obvious next step — join the waitlist.',
+            text: 'The shipped design is a focused, single-purpose landing page: a clear introduction to Markaz, a device mockup that makes the product feel real, and one obvious next step. Join the waitlist.',
           },
           {
             kind: 'image',
@@ -277,7 +280,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'Designing a product before it existed meant I couldn’t lean on interactions or real functionality to build trust — only on how the page looked and felt in the first few seconds. Instead of designing flows, I was designing anticipation.',
+            text: 'Designing a product before it existed meant I couldn’t lean on interactions or real functionality to build trust. I only had how the page looked and felt in the first few seconds. Instead of designing flows, I was designing anticipation.',
           },
           {
             kind: 'paragraph',
@@ -300,6 +303,7 @@ export const projects: Project[] = [
     },
     year: '2025',
     isConfidential: false,
+    isFeatured: true,
     award: '🏆 Most Innovative Award',
     links: [
       { kind: 'pdf', url: '#', label: 'View Case Study' },
@@ -307,8 +311,8 @@ export const projects: Project[] = [
     ],
     meta: {
       role: 'UX Designer',
-      timeline: '24-Hour UX Design Sprint — February 2025',
-      team: 'Team of 3 — with Victoria Leliveld & Amrit Nannar',
+      timeline: '24-Hour UX Design Sprint, February 2025',
+      team: 'Team of 3, with Victoria Leliveld & Amrit Nannar',
       tools: ['Figma'],
     },
     sections: [
@@ -328,7 +332,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'Concertgoers often hope to hear a specific song — usually an old favorite — but have almost no way to influence what actually gets played. At the same time, artists generally discourage heavy phone use during a show because it pulls people out of the moment.',
+            text: 'Concertgoers often hope to hear a specific song, usually an old favorite, but have almost no way to influence what actually gets played. At the same time, artists generally discourage heavy phone use during a show because it pulls people out of the moment.',
           },
           {
             kind: 'list',
@@ -340,7 +344,7 @@ export const projects: Project[] = [
           },
           {
             kind: 'paragraph',
-            text: 'Our goal became specific from there: design something that deepens the connection between artist and audience — interactive enough to matter, restrained enough to protect the energy of a live show.',
+            text: 'Our goal became specific from there: design something that deepens the connection between artist and audience. Interactive enough to matter, restrained enough to protect the energy of a live show.',
           },
         ],
       },
@@ -350,7 +354,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'I worked as part of a three-person team — Victoria Leliveld, Amrit Nannar, and me — across research, ideation, interaction design, and the final high-fidelity screens.',
+            text: 'I worked as part of a three-person team with Victoria Leliveld and Amrit Nannar, across research, ideation, interaction design, and the final high-fidelity screens.',
           },
           {
             kind: 'paragraph',
@@ -364,7 +368,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'With one day on the clock, there was no time for formal research — instead, we spent our first hour pooling our own experience as concertgoers and talking through the frustrations that came up again and again.',
+            text: 'With one day on the clock, there was no time for formal research. Instead, we spent our first hour pooling our own experience as concertgoers and talking through the frustrations that came up again and again.',
           },
           {
             kind: 'list',
@@ -388,7 +392,7 @@ export const projects: Project[] = [
           { kind: 'heading', text: 'Real-Time Song Voting', level: 3 },
           {
             kind: 'paragraph',
-            text: 'The core of the app: fans vote on which song plays next, giving them a direct hand in shaping the set without taking the mic — or the setlist — away from the artist.',
+            text: 'The core of the app: fans vote on which song plays next, giving them a direct hand in shaping the set without taking the mic, or the setlist, away from the artist.',
           },
           {
             kind: 'imageGrid',
@@ -413,7 +417,7 @@ export const projects: Project[] = [
           { kind: 'heading', text: 'Song Bank', level: 3 },
           {
             kind: 'paragraph',
-            text: 'Fans pick favorite songs before the show, quietly raising the odds those songs make it into the set — participation that starts before the doors even open.',
+            text: 'Fans pick favorite songs before the show, quietly raising the odds those songs make it into the set. It’s participation that starts before the doors even open.',
           },
           { kind: 'heading', text: 'Live Poll Metrics', level: 3 },
           {
@@ -423,7 +427,7 @@ export const projects: Project[] = [
           { kind: 'heading', text: 'Merch Integration', level: 3 },
           {
             kind: 'paragraph',
-            text: 'Merch ordering with venue pickup, folded into the same app instead of a separate line — a small convenience, not the point of the product.',
+            text: 'Merch ordering with venue pickup, folded into the same app instead of a separate line. A small convenience, not the point of the product.',
           },
         ],
       },
@@ -437,7 +441,7 @@ export const projects: Project[] = [
           },
           {
             kind: 'paragraph',
-            text: 'There was no room for a decision to sit unchallenged for long — if something wasn’t working, we heard about it within the hour, not the next sprint cycle.',
+            text: 'There was no room for a decision to sit unchallenged for long. If something wasn’t working, we heard about it within the hour, not the next sprint cycle.',
           },
         ],
       },
@@ -460,7 +464,7 @@ export const projects: Project[] = [
           },
           {
             kind: 'paragraph',
-            text: 'It’s still a sprint project, not a shipped product — but it held together as a real, presentable interface under real time pressure, which was the actual test.',
+            text: 'It’s still a sprint project, not a shipped product, but it held together as a real, presentable interface under real time pressure, which was the actual test.',
           },
         ],
       },
@@ -474,7 +478,7 @@ export const projects: Project[] = [
           },
           {
             kind: 'paragraph',
-            text: 'This project taught me to prioritize ruthlessly and iterate in public — there’s no time to be precious about an idea when you have hours, not weeks. It also reinforced something I keep relearning: a lot of good UX work isn’t inventing new behavior, it’s reframing an existing one — in this case, turning a phone from a distraction into a tool for connection.',
+            text: 'This project taught me to prioritize ruthlessly and iterate in public. There’s no time to be precious about an idea when you have hours, not weeks. It also reinforced something I keep relearning: a lot of good UX work isn’t inventing new behavior, it’s reframing an existing one. In this case, turning a phone from a distraction into a tool for connection.',
           },
         ],
       },
@@ -488,7 +492,7 @@ export const projects: Project[] = [
     tags: ['Product Design', 'Streaming Experience'],
     coverImage: {
       src: closeTheCurtainCover,
-      alt: 'Close the Curtain concept — a browser extension popup over a paused YouTube video, showing the "Enable Close the Curtains" toggle and description',
+      alt: 'Close the Curtain concept: a browser extension popup over a paused YouTube video, showing the "Enable Close the Curtains" toggle and description',
       tone: 'ink',
     },
     year: '2026',
@@ -497,7 +501,7 @@ export const projects: Project[] = [
     meta: {
       role: 'Product Designer',
       timeline: 'January 2026',
-      team: 'Team of 4 — with Mona Eletr, Aleena Rashid & Affan Arshad',
+      team: 'Team of 4, with Mona Eletr, Aleena Rashid & Affan Arshad',
       tools: ['Figma'],
     },
     sections: [
@@ -507,7 +511,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'Close the Curtain is a concept for an optional streaming mode that gently skips intimate or sensitive scenes while preserving story continuity through short, AI-generated plot summaries. Rather than blocking a title outright, it gives viewers more control over how they watch — making shared viewing more comfortable without compromising the story itself.',
+            text: 'Close the Curtain is a concept for an optional streaming mode that gently skips intimate or sensitive scenes while preserving story continuity through short, AI-generated plot summaries. Rather than blocking a title outright, it gives viewers more control over how they watch, making shared viewing more comfortable without compromising the story itself.',
           },
         ],
       },
@@ -517,11 +521,11 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'Streaming platforms serve an enormous range of viewers under one roof, and comfort with on-screen content varies a lot depending on who’s in the room — family, kids, a first date, a shared living space. Existing parental controls tend to force an all-or-nothing choice: block the whole title, or leave everything in and let people fend for themselves with the fast-forward button, usually losing track of the story in the process.',
+            text: 'Streaming platforms serve an enormous range of viewers under one roof, and comfort with on-screen content varies a lot depending on who’s in the room: family, kids, a first date, a shared living space. Existing parental controls tend to force an all-or-nothing choice: block the whole title, or leave everything in and let people fend for themselves with the fast-forward button, usually losing track of the story in the process.',
           },
           {
             kind: 'paragraph',
-            text: 'The goal we set was specific: design an optional viewing mode that lets people comfortably watch mainstream content together without losing the thread of the story — something that felt supportive and entirely user-controlled, never like it was making the decision for you.',
+            text: 'The goal we set was specific: design an optional viewing mode that lets people comfortably watch mainstream content together without losing the thread of the story. It needed to feel supportive and entirely user-controlled, never like it was making the decision for you.',
           },
         ],
       },
@@ -531,7 +535,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'I worked on this as part of a four-person team — Mona Eletr, Aleena Rashid, Affan Arshad, and me — contributing to product strategy, interaction design, interface design, and the high-fidelity prototype.',
+            text: 'I worked on this as part of a four-person team with Mona Eletr, Aleena Rashid, and Affan Arshad, contributing to product strategy, interaction design, interface design, and the high-fidelity prototype.',
           },
           {
             kind: 'paragraph',
@@ -545,7 +549,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'The real problem wasn’t the content itself — it was that viewers had no middle ground between watching everything and watching nothing.',
+            text: 'The real problem wasn’t the content itself. It was that viewers had no middle ground between watching everything and watching nothing.',
           },
           {
             kind: 'paragraph',
@@ -561,7 +565,7 @@ export const projects: Project[] = [
           { kind: 'heading', text: 'Optional Viewing Mode', level: 3 },
           {
             kind: 'paragraph',
-            text: 'The feature is off by default and entirely opt-in. Nothing about the experience assumes what a viewer wants — it only responds to a choice they’ve actively made.',
+            text: 'The feature is off by default and entirely opt-in. Nothing about the experience assumes what a viewer wants. It only responds to a choice they’ve actively made.',
           },
           { kind: 'heading', text: 'Scene Detection', level: 3 },
           {
@@ -579,12 +583,12 @@ export const projects: Project[] = [
           { kind: 'heading', text: 'Narrative Continuity', level: 3 },
           {
             kind: 'paragraph',
-            text: 'Short, AI-generated summaries fill the gap left by a skipped scene, so a viewer never loses the thread of what just happened — the point was never to hide the story, only a moment of it.',
+            text: 'Short, AI-generated summaries fill the gap left by a skipped scene, so a viewer never loses the thread of what just happened. The point was never to hide the story, only a moment of it.',
           },
           { kind: 'heading', text: 'Respectful Experience', level: 3 },
           {
             kind: 'paragraph',
-            text: 'Transitions were designed to feel calm, not clinical — a soft fade and a brief summary card, rather than an abrupt jump cut that draws more attention to the skip than the scene itself would have.',
+            text: 'Transitions were designed to feel calm, not clinical: a soft fade and a brief summary card, rather than an abrupt jump cut that draws more attention to the skip than the scene itself would have.',
           },
         ],
       },
@@ -597,7 +601,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'Close the Curtain is a concept, not a working product — the prototype demonstrates the intended experience rather than a production implementation. As we designed it, the intended flow works in four steps.',
+            text: 'Close the Curtain is a concept, not a working product. The prototype demonstrates the intended experience rather than a production implementation. As we designed it, the intended flow works in four steps.',
           },
           {
             kind: 'list',
@@ -616,7 +620,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'Designing around a sensitive subject meant a lot of the real work happened before any screens got drawn — agreeing as a team on language, tone, and where the line was between helpful and presumptuous. Once that foundation felt right, the interaction design followed: how a viewer turns the mode on, how a skip is signaled, how much of a summary is enough without becoming a spoiler in itself.',
+            text: 'Designing around a sensitive subject meant a lot of the real work happened before any screens got drawn. We had to agree as a team on language, tone, and where the line was between helpful and presumptuous. Once that foundation felt right, the interaction design followed: how a viewer turns the mode on, how a skip is signaled, how much of a summary is enough without becoming a spoiler in itself.',
           },
           {
             kind: 'paragraph',
@@ -630,7 +634,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'What we landed on is a quiet, optional layer on top of a familiar streaming interface — a toggle, a scene-skip transition, and a short summary card, designed to feel like a natural part of the platform rather than a bolted-on filter.',
+            text: 'What we landed on is a quiet, optional layer on top of a familiar streaming interface: a toggle, a scene-skip transition, and a short summary card, designed to feel like a natural part of the platform rather than a bolted-on filter.',
           },
           {
             kind: 'image',
@@ -643,7 +647,7 @@ export const projects: Project[] = [
           },
           {
             kind: 'paragraph',
-            text: 'As a concept, it’s an exploration of what a more inclusive viewing experience could look like — not a finished feature, but a considered starting point for one.',
+            text: 'As a concept, it’s an exploration of what a more inclusive viewing experience could look like. Not a finished feature, but a considered starting point for one.',
           },
         ],
       },
@@ -653,7 +657,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'This project pushed me to think about accessibility more broadly than I had before. The interesting question was never whether content should be restricted — it was how a product could adapt to genuinely different viewing needs without treating any one of them as the default.',
+            text: 'This project pushed me to think about accessibility more broadly than I had before. The interesting question was never whether content should be restricted. It was how a product could adapt to genuinely different viewing needs without treating any one of them as the default.',
           },
           {
             kind: 'paragraph',
@@ -680,7 +684,7 @@ export const projects: Project[] = [
     meta: {
       role: 'UX Designer (Team Lead)',
       timeline: 'May 2025',
-      team: 'Team of 5 — with Amrit Nannar, Jania Walia, Laura Lam & Gaooshan Sathiyakumar',
+      team: 'Team of 5, with Amrit Nannar, Jania Walia, Laura Lam & Gaooshan Sathiyakumar',
       tools: ['Figma'],
     },
     sections: [
@@ -690,7 +694,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'LORIS — Laurier’s Online Registration and Information System — is what students and faculty use for course registration, tuition, grades, and most of the university’s day-to-day administrative tasks. It’s powerful, but years of accumulated interface complexity had made routine tasks harder than they needed to be.',
+            text: 'LORIS, Laurier’s Online Registration and Information System, is what students and faculty use for course registration, tuition, grades, and most of the university’s day-to-day administrative tasks. It’s powerful, but years of accumulated interface complexity had made routine tasks harder than they needed to be.',
           },
           {
             kind: 'paragraph',
@@ -718,7 +722,7 @@ export const projects: Project[] = [
           },
           {
             kind: 'paragraph',
-            text: 'Our goal was specific: help students complete common tasks more efficiently and make the platform feel approachable and modern — without changing the core functionality people already relied on.',
+            text: 'Our goal was specific: help students complete common tasks more efficiently and make the platform feel approachable and modern, without changing the core functionality people already relied on.',
           },
         ],
       },
@@ -728,7 +732,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'I led a five-person team — Amrit Nannar, Jania Walia, Laura Lam, Gaooshan Sathiyakumar, and me — contributing to UX strategy, interaction design, interface design, and the overall direction of the project.',
+            text: 'I led a five-person team with Amrit Nannar, Jania Walia, Laura Lam, and Gaooshan Sathiyakumar, contributing to UX strategy, interaction design, interface design, and the overall direction of the project.',
           },
           {
             kind: 'paragraph',
@@ -744,12 +748,12 @@ export const projects: Project[] = [
           { kind: 'heading', text: 'Reducing Cognitive Load', level: 3 },
           {
             kind: 'paragraph',
-            text: 'Simpler layouts and a clearer hierarchy meant students could focus on the task in front of them — registering for a course, checking a grade — instead of parsing a dense screen just to find where to start.',
+            text: 'Simpler layouts and a clearer hierarchy meant students could focus on the task in front of them, registering for a course, checking a grade, instead of parsing a dense screen just to find where to start.',
           },
           { kind: 'heading', text: 'Prioritizing Frequent Actions', level: 3 },
           {
             kind: 'paragraph',
-            text: 'The tasks students reach for constantly — registration, grades, schedules — were surfaced directly on the dashboard instead of buried a few clicks deep, so the most common path is also the shortest one.',
+            text: 'The tasks students reach for constantly, registration, grades, schedules, were surfaced directly on the dashboard instead of buried a few clicks deep, so the most common path is also the shortest one.',
           },
           {
             kind: 'imageGrid',
@@ -774,7 +778,7 @@ export const projects: Project[] = [
           { kind: 'heading', text: 'Creating Visual Consistency', level: 3 },
           {
             kind: 'paragraph',
-            text: 'Consistent spacing, typography, and a small set of reusable components made the interface predictable — once you learn one screen, the rest behave the way you’d expect.',
+            text: 'Consistent spacing, typography, and a small set of reusable components made the interface predictable. Once you learn one screen, the rest behave the way you’d expect.',
           },
         ],
       },
@@ -790,7 +794,7 @@ export const projects: Project[] = [
           { kind: 'heading', text: 'Streamlined Dashboard', level: 3 },
           {
             kind: 'paragraph',
-            text: 'A single, decluttered view surfaces the essentials — registration status, grades, holds — without requiring a scavenger hunt across separate pages.',
+            text: 'A single, decluttered view surfaces the essentials: registration status, grades, holds. No scavenger hunt across separate pages required.',
           },
           { kind: 'heading', text: 'Clearer Navigation & Grouped Menus', level: 3 },
           {
@@ -824,7 +828,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'To keep the redesign consistent across dozens of screens, we put together a small design system alongside the interface work — a shared language the rest of the redesign could draw from.',
+            text: 'To keep the redesign consistent across dozens of screens, we put together a small design system alongside the interface work: a shared language the rest of the redesign could draw from.',
           },
           {
             kind: 'list',
@@ -853,7 +857,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'What shipped is a cleaner, more intuitive LORIS — one built around what students are actually trying to do, rather than the system’s internal structure. The goal from the start was to let people focus on finishing a task, not on figuring out how the platform works.',
+            text: 'What shipped is a cleaner, more intuitive LORIS, one built around what students are actually trying to do, rather than the system’s internal structure. The goal from the start was to let people focus on finishing a task, not on figuring out how the platform works.',
           },
           {
             kind: 'image',
@@ -883,6 +887,12 @@ export const projects: Project[] = [
     ],
   },
 ]
+
+// The public-facing subset — homepage grid, featured pick, and next-project
+// cycling all read from this instead of `projects`. `getProjectBySlug` below
+// still searches the full list, so an unpublished project's case study route
+// keeps working if visited directly; it's just not linked from anywhere.
+export const publishedProjects: Project[] = projects.filter((project) => project.isPublished !== false)
 
 export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((project) => project.slug === slug)

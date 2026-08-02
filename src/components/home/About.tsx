@@ -1,146 +1,109 @@
-import { about, hackathonImage, portrait } from '../../data/siteContent'
+import { about, bobaImage, caseHacksImage, portrait } from '../../data/siteContent'
 import { RevealOnScroll } from '../motion/RevealOnScroll'
 import { RevealGroup, RevealGroupItem } from '../motion/RevealGroup'
 import { Container } from '../ui/Container'
 import { ImagePlaceholder } from '../ui/ImagePlaceholder'
 import { SectionHeading } from '../ui/SectionHeading'
 
-function Paragraphs({ text, className = '' }: { text: string; className?: string }) {
-  return (
-    <div className={`flex flex-col gap-stack-xs ${className}`}>
-      {text.split('\n\n').map((paragraph) => (
-        <p key={paragraph} className="text-lg text-ink-soft">
-          {paragraph}
-        </p>
-      ))}
-    </div>
-  )
-}
-
-function BulletList({ items }: { items: string[] }) {
-  return (
-    <ul className="flex flex-col gap-2">
-      {items.map((item) => (
-        <li key={item} className="flex gap-2.5 text-ink-soft">
-          <span aria-hidden="true" className="shrink-0 text-sage">
-            —
-          </span>
-          {item}
-        </li>
-      ))}
-    </ul>
+function Photo({
+  image,
+  aspectRatio,
+  className = '',
+  objectPosition = 'center',
+}: {
+  image: typeof portrait
+  aspectRatio: string
+  className?: string
+  objectPosition?: string
+}) {
+  return image.src ? (
+    <img
+      src={image.src}
+      alt={image.alt}
+      className={`w-full rounded-lg object-cover shadow-soft ${className}`}
+      style={{ aspectRatio, objectPosition }}
+    />
+  ) : (
+    <ImagePlaceholder
+      alt={image.alt}
+      tone={image.tone}
+      radius="lg"
+      aspectRatio={aspectRatio}
+      className={`shadow-soft ${className}`}
+    />
   )
 }
 
 export function About() {
-  const [leadFact, ...restFacts] = about.funFacts
-
   return (
-    <section id="about" className="bg-sunken py-stack-xl">
+    <section id="about" className="bg-sunken py-stack-lg">
       <Container className="flex flex-col gap-stack-lg">
-        {/* Beat 1 — the introduction: portrait + who I am + how I got here */}
-        <div className="grid grid-cols-1 gap-stack-lg md:grid-cols-12">
-          <RevealOnScroll variant="scaleIn" className="relative md:col-span-5">
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -inset-8 -z-10 rounded-full bg-lavender/20 blur-3xl"
-            />
-            {portrait.src ? (
-              <img
-                src={portrait.src}
-                alt={portrait.alt}
-                className="w-full rounded-xl object-cover shadow-soft"
-                style={{ aspectRatio: '4 / 5' }}
-              />
-            ) : (
-              <ImagePlaceholder
-                alt={portrait.alt}
-                tone={portrait.tone}
-                radius="xl"
-                aspectRatio="4 / 5"
-                className="shadow-soft"
-              />
-            )}
-
-            {/* Caption card overlapping the portrait's edge — the section's
-                one deliberate "layered" moment, echoing the Hero/Projects glow. */}
-            <div className="absolute -bottom-4 -left-4 max-w-[75%] rounded-lg border border-white/50 bg-surface/75 px-4 py-3 shadow-soft-sm backdrop-blur-md">
-              <span className="text-xs font-medium leading-snug text-ink">{leadFact}</span>
-            </div>
-          </RevealOnScroll>
-
-          <div className="flex flex-col gap-stack-md md:col-span-7 md:pt-stack-xs">
-            <RevealOnScroll>
-              <SectionHeading eyebrow={about.eyebrow} title={about.title} subtitle={about.intro} />
-            </RevealOnScroll>
-
-            <RevealOnScroll delay={0.1} className="flex flex-col gap-stack-xs">
-              <h3 className="font-display text-xl text-ink">{about.journey.heading}</h3>
-              <Paragraphs text={about.journey.paragraph} />
-            </RevealOnScroll>
+        {/* Beat 1 — a small portrait beside the introduction, not a full column */}
+        <RevealOnScroll className="flex flex-col items-start gap-stack-sm sm:flex-row sm:items-center sm:gap-stack-md">
+          <div className="w-56 shrink-0">
+            <Photo image={portrait} aspectRatio="4 / 5" className="rotate-2" objectPosition="32% center" />
           </div>
-        </div>
+          <SectionHeading eyebrow={about.eyebrow} title={about.title} subtitle={about.intro} size="md" />
+        </RevealOnScroll>
 
-        {/* Beat 2 — a breather: the line that actually reframed things for her */}
-        <RevealOnScroll className="mx-auto max-w-3xl text-center">
-          <span aria-hidden="true" className="font-display text-5xl leading-none text-lavender">
+        {/* Beat 2 — a short, offset story beat. No image here — kept brief
+            and asymmetrically placed instead, so it doesn't need one. */}
+        <RevealOnScroll className="max-w-lg sm:ml-[22%]">
+          <h3 className="font-display text-lg text-ink">{about.origin.heading}</h3>
+          <p className="mt-1.5 text-ink-soft">{about.origin.paragraph}</p>
+        </RevealOnScroll>
+
+        {/* Beat 3 — breather: short and centered, not a huge display moment */}
+        <RevealOnScroll className="mx-auto max-w-xl text-center">
+          <span aria-hidden="true" className="font-display text-3xl leading-none text-lavender">
             “
           </span>
-          <p className="font-display text-display-3 text-ink">{about.pullQuote}</p>
+          <p className="font-display text-2xl text-ink md:text-display-3">{about.pullQuote}</p>
         </RevealOnScroll>
 
-        {/* Beat 3 — full-width now, breaking from the two-column rhythm above */}
-        <RevealOnScroll className="flex flex-col gap-stack-xs">
-          <h3 className="font-display text-xl text-ink">{about.excites.heading}</h3>
-          <Paragraphs text={about.excites.paragraph} className="max-w-2xl" />
-        </RevealOnScroll>
-
-        {/* Beat 4a — a horizontal card: hackathons, told with a supporting photo */}
-        <RevealOnScroll className="flex flex-col gap-stack-sm overflow-hidden rounded-lg bg-surface p-stack-sm shadow-soft-sm sm:flex-row sm:items-center">
-          <div className="sm:w-[38%] sm:shrink-0">
-            {hackathonImage.src ? (
-              <img
-                src={hackathonImage.src}
-                alt={hackathonImage.alt}
-                className="w-full rounded-md object-cover"
-                style={{ aspectRatio: '4 / 3' }}
-              />
-            ) : (
-              <ImagePlaceholder
-                alt={hackathonImage.alt}
-                tone={hackathonImage.tone}
-                radius="md"
-                aspectRatio="4 / 3"
-              />
-            )}
-          </div>
-          <div className="flex flex-col gap-1.5">
-            <h3 className="font-display text-lg text-ink">{about.hackathons.heading}</h3>
-            <p className="text-ink-soft">{about.hackathons.paragraph}</p>
+        {/* Beat 4 — community story, photo on the right this time. A
+            centered flex row rather than a float, so a short paragraph
+            beside a tall photo never leaves an empty gap underneath. */}
+        <RevealOnScroll className="flex flex-col items-center gap-stack-sm sm:flex-row-reverse sm:items-center sm:gap-stack-md">
+          <figure className="w-56 shrink-0">
+            <Photo image={caseHacksImage} aspectRatio="4 / 5" className="-rotate-2" />
+            <figcaption className="mt-1.5 text-center text-xs italic text-ink-soft sm:text-left">
+              {about.caseHacksCaption}
+            </figcaption>
+          </figure>
+          <div className="text-center sm:text-left">
+            <h3 className="font-display text-lg text-ink">{about.community.heading}</h3>
+            <p className="mt-1.5 text-ink-soft">{about.community.paragraph}</p>
           </div>
         </RevealOnScroll>
 
-        {/* Beat 4b — plain paragraph, matching the "What excites me" treatment */}
-        <RevealOnScroll className="flex flex-col gap-stack-xs">
-          <h3 className="font-display text-xl text-ink">{about.community.heading}</h3>
-          <p className="max-w-2xl text-lg text-ink-soft">{about.community.paragraph}</p>
+        {/* Beat 5 — outside of design, mirrored: photo on the left this time */}
+        <RevealOnScroll className="flex flex-col items-center gap-stack-sm sm:flex-row sm:items-center sm:gap-stack-md">
+          <figure className="w-56 shrink-0">
+            <Photo image={bobaImage} aspectRatio="4 / 5" className="rotate-3" />
+            <figcaption className="mt-1.5 text-center text-xs italic text-ink-soft sm:text-left">
+              {about.bobaCaption}
+            </figcaption>
+          </figure>
+          <div className="text-center sm:text-left">
+            <h3 className="font-display text-lg text-ink">{about.outside.heading}</h3>
+            <p className="mt-1.5 text-ink-soft">{about.outside.paragraph}</p>
+          </div>
         </RevealOnScroll>
 
-        {/* Beat 5 — closing two-up: currently learning + fun facts */}
-        <RevealGroup as="div" className="grid grid-cols-1 gap-stack-sm sm:grid-cols-2">
-          <RevealGroupItem className="flex flex-col gap-stack-xs rounded-lg bg-surface p-stack-sm shadow-soft-sm">
-            <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-sage">
-              Right now I'm learning
-            </h3>
-            <BulletList items={about.currentlyLearning} />
-          </RevealGroupItem>
-
-          <RevealGroupItem className="flex flex-col gap-stack-xs rounded-lg bg-surface p-stack-sm shadow-soft-sm">
-            <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-sage">
-              A few more fun facts
-            </h3>
-            <BulletList items={restFacts} />
-          </RevealGroupItem>
+        {/* Beat 6 — right now: quick, specific, compact cards */}
+        <RevealGroup as="div" className="grid grid-cols-2 gap-stack-xs sm:grid-cols-3">
+          {about.rightNow.map((item) => (
+            <RevealGroupItem
+              key={item.label}
+              className="flex flex-col gap-1 rounded-lg bg-surface p-stack-xs shadow-soft-sm"
+            >
+              <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-sage">
+                {item.label}
+              </span>
+              <span className="text-sm text-ink">{item.value}</span>
+            </RevealGroupItem>
+          ))}
         </RevealGroup>
       </Container>
     </section>

@@ -32,12 +32,21 @@ export function CaseStudyHero({ project }: CaseStudyHeroProps) {
 
         <RevealOnScroll delay={0.1} className="mt-stack-md">
           {banner.src ? (
-            <img
-              src={banner.src}
-              alt={banner.alt}
-              className="w-full rounded-xl object-cover shadow-soft"
-              style={{ aspectRatio: '21 / 9' }}
-            />
+            banner.fit === 'contain' ? (
+              <div
+                className="flex w-full items-center justify-center rounded-xl bg-sunken shadow-soft"
+                style={{ aspectRatio: '21 / 9' }}
+              >
+                <img src={banner.src} alt={banner.alt} className="h-full rounded-lg object-contain py-stack-xs" />
+              </div>
+            ) : (
+              <img
+                src={banner.src}
+                alt={banner.alt}
+                className="w-full rounded-xl object-cover shadow-soft"
+                style={{ aspectRatio: '21 / 9' }}
+              />
+            )
           ) : (
             <ImagePlaceholder
               alt={banner.alt}

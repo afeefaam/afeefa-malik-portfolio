@@ -8,7 +8,7 @@ import { ConfidentialNotice } from '../components/case-study/ConfidentialNotice'
 import { Footer } from '../components/layout/Footer'
 import { Nav } from '../components/layout/Nav'
 import { Container } from '../components/ui/Container'
-import { getProjectBySlug, projects } from '../data/projects'
+import { getProjectBySlug, publishedProjects } from '../data/projects'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import NotFoundPage from './NotFoundPage'
 
@@ -24,10 +24,16 @@ export default function CaseStudyPage() {
 }
 
 function CaseStudyContent({ project }: { project: NonNullable<ReturnType<typeof getProjectBySlug>> }) {
-  useDocumentTitle(`${project.title} — Afeefa Malik`)
+  useDocumentTitle(`${project.title} · Afeefa Malik`)
 
-  const currentIndex = projects.findIndex((p) => p.id === project.id)
-  const nextProject = projects[(currentIndex + 1) % projects.length]
+  // Cycle only through published projects, so "next" never lands on a
+  // hidden one. If the current project itself isn't published (viewed
+  // directly via its URL), default to the first published project.
+  const currentIndex = publishedProjects.findIndex((p) => p.id === project.id)
+  const nextProject =
+    currentIndex === -1
+      ? publishedProjects[0]
+      : publishedProjects[(currentIndex + 1) % publishedProjects.length]
 
   return (
     <>

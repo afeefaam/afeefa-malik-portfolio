@@ -2,6 +2,11 @@
 // not final. Replace with Afeefa's real bio, experience, and contact details.
 
 import type { ProjectImage } from './projects.types'
+import karamiaPhoto from '../assets/images/karamia.jpg'
+import caseHacksPhoto from '../assets/images/casehacks.jpg'
+import bobaPhoto from '../assets/images/boba.jpg'
+import setlistCoverPhoto from '../assets/images/setlist-cover.jpg'
+import setlistUiPhoto from '../assets/images/setlist-ui.jpg'
 
 export const person = {
   name: 'Afeefa Malik',
@@ -9,10 +14,9 @@ export const person = {
   email: 'afeefam.am@gmail.com', // PLACEHOLDER
 }
 
-// Portrait shown in the About section. Swap `src: null` for a real photo
-// (e.g. import photo from '../assets/images/portrait.jpg') when ready.
+// Portrait shown in the About section.
 export const portrait: ProjectImage = {
-  src: null,
+  src: karamiaPhoto,
   alt: `Portrait of ${person.name}`,
   tone: 'lavender',
 }
@@ -30,25 +34,28 @@ export const hero = {
     'Hackathon Enthusiast.',
   ],
   subhead:
-    "I study computer science and design interfaces — trying to find the quiet, obvious solution underneath a complicated problem, then build it well enough that no one notices the work it took.",
+    "I study computer science and design interfaces. I'm always trying to find the quiet, obvious solution underneath a complicated problem, then build it well enough that no one notices the work it took.",
   primaryCta: { label: 'Selected work', href: '#work' },
   secondaryCta: { label: 'About me', href: '#about' },
 }
 
-// Hero's layered device mockups. Swap `src: null` for a real screenshot path
-// (e.g. import shot from '../assets/images/wayfind-browser.png') once you
-// have one; leaving it null keeps the soft placeholder treatment. `browser`
-// fills a landscape browser-window frame, `phone` fills a portrait phone frame.
+// Hero's layered device mockups. `browser` fills a landscape browser-window
+// frame, `phone` fills a portrait phone frame.
 export const heroVisual: { browser: ProjectImage; phone: ProjectImage } = {
-  browser: { src: null, alt: 'Browser preview of a recent case study', tone: 'lavender' },
-  phone: { src: null, alt: 'Mobile screen preview of an earlier project', tone: 'sage' },
+  browser: { src: setlistCoverPhoto, alt: 'Setlist app preview', tone: 'lavender' },
+  phone: { src: setlistUiPhoto, alt: 'Setlist app song-voting screen', tone: 'sage' },
 }
 
-// Second visual beat in About — a small photo/moment placeholder alongside
-// the hackathon story. Swap `src: null` for a real photo when ready.
-export const hackathonImage: ProjectImage = {
-  src: null,
-  alt: 'PLACEHOLDER — replace with a real photo from a hackathon',
+// About-page photo moments — small, editorial, not full-bleed.
+export const caseHacksImage: ProjectImage = {
+  src: caseHacksPhoto,
+  alt: 'Presenting at the CaseHacks Finals',
+  tone: 'lavender',
+}
+
+export const bobaImage: ProjectImage = {
+  src: bobaPhoto,
+  alt: 'Holding a boba',
   tone: 'clay',
 }
 
@@ -56,44 +63,39 @@ export const about = {
   eyebrow: 'About',
   title: "Hi, I'm Afeefa.",
   intro:
-    "I'm a computer science student with a UX design minor — currently interning, always curious, and a little too invested in whether a button actually looks clickable.",
+    "I'm a computer science student with a UX design minor, though that's the boring way to put it. I say yes before I feel ready, I'm probably holding a boba right now, and I've organized more events than I can count.",
 
-  journey: {
-    heading: 'How I got here',
+  origin: {
+    heading: 'How I accidentally found UX',
     paragraph:
-      "I didn't set out to become a designer. I started as a computer science student, writing code and mostly thinking about whether things worked. Somewhere around a particularly confusing error message, I started asking a different question — not just does this work, but does this make sense to the person using it?\n\nThat question turned into a UX minor, then an internship, then a habit I can't really turn off: noticing the small friction points in everyday apps and wondering how they could feel one decision simpler.",
+      "I started in computer science, mostly caring about whether things worked. Somewhere along the way, I noticed I cared just as much about how they felt to use. That noticing became a UX minor before I'd fully decided to let it.",
   },
 
-  pullQuote: 'Not just does this work — does this make sense to the person using it?',
-
-  excites: {
-    heading: 'What actually gets me excited',
-    paragraph:
-      "I like sitting at the overlap of technical and human. I want to know why something is hard to build, not just that it is — the best answer to a design problem usually lives somewhere between what's easy to design and what's actually possible to ship.\n\nAnd I'll admit it: I notice things most people don't. The form field that explains itself without a tooltip. The button that feels clickable versus the one that just technically is one. I think about that stuff more than is probably normal.",
-  },
-
-  hackathons: {
-    heading: 'Built under pressure',
-    paragraph:
-      "Some of my favorite work has come out of 24 hours, not 24 weeks. I love hackathons — messy problems, a team of near-strangers, and a deadline that doesn't care how attached you are to your first idea. Setlist, one of the case studies on this site, came out of exactly that.",
-  },
+  pullQuote: 'I cared just as much about how something felt to use as whether it worked.',
 
   community: {
-    heading: 'Organizing, always',
+    heading: 'Why community matters to me',
     paragraph:
-      "Outside of coursework, I spend a lot of time organizing — events, initiatives, the unglamorous logistics that make a community actually run. It's closer to UX than people expect: most of it is anticipating what people need before they have to ask.",
+      "Outside class, I'm usually organizing something: a volunteer initiative, a student event, a hackathon team that came together 48 hours before a deadline. I like bringing people into a room and seeing what happens. I even ended up presenting at the CaseHacks Finals, which still feels a little surreal to say.",
   },
 
-  currentlyLearning: [
-    'How to defend a design decision in a room full of engineers, without caving immediately or digging in for no reason',
-    'When "good enough" is actually the right call, not a compromise',
-    'How far a design system can bend before it breaks',
-  ],
+  caseHacksCaption: 'Presenting at the CaseHacks Finals.',
 
-  funFacts: [
-    'Reads interface copy out loud before shipping it',
-    'Has pulled an all-nighter for a hackathon and would absolutely do it again',
-    'Keeps a running list of the calmest, most "figured-out" feeling apps on her phone',
+  outside: {
+    heading: 'Outside of design',
+    paragraph:
+      "If you know me in real life, there's a good chance I'm holding a boba. I'm always chasing a new café, saying yes before checking my schedule, and finding a reason to meet someone new.",
+  },
+
+  bobaCaption: 'Trying yet another boba place.',
+
+  rightNow: [
+    { label: 'Current obsession', value: "Whatever boba place I haven't tried yet" },
+    { label: 'Always say yes to', value: 'A hackathon, a new café, or an excuse to organize something' },
+    { label: 'Coffee chat topics', value: 'Design, hackathons, or good boba recs' },
+    { label: 'Weekend plans', value: 'Probably an event I said yes to two weeks ago' },
+    { label: 'Currently learning', value: 'How to defend a design decision in a room full of engineers' },
+    { label: 'Favorite boba order', value: 'Brown sugar oat milk, less ice' },
   ],
 }
 
@@ -104,25 +106,27 @@ export interface ExperienceEntry {
   description: string
 }
 
-// PLACEHOLDER — replace with real roles/internships/coursework
 export const experience: ExperienceEntry[] = [
   {
-    role: 'Web Design Student',
+    role: 'UX Design Intern',
     org: 'BlackBerry',
-    period: 'May2026 — Aug 2026',
-    description: 'Designing end-to-end flows for a small product team, from research through shipped UI.',
+    period: 'May 2026 – Aug 2026',
+    description:
+      'This was my first real taste of enterprise design. I worked on software built for secure government and business environments, where a missed contrast ratio actually mattered to someone. Auditing accessibility and sitting in on developer conversations taught me how much invisible care shapes products people never think twice about.',
   },
   {
-    role: 'Teaching Assistant, Human-Computer Interaction',
-    org: 'University Name',
-    period: '2024 — 2025',
-    description: 'Ran design critiques for a 60-student course, grading for both usability reasoning and craft.',
+    role: 'Product & UI Designer (Volunteer)',
+    org: 'Markaz',
+    period: 'Oct 2025 – Mar 2026',
+    description:
+      "Markaz didn't exist yet when I joined. No users, no brand, barely a product. Building its visual identity and onboarding from nothing taught me what it actually feels like to balance what people need against what a small team can realistically ship before launch.",
   },
   {
-    role: 'Freelance UX Designer',
-    org: 'Self-directed',
-    period: '2023 — 2024',
-    description: 'Took on small case-study projects to learn the full arc of a design process, start to finish.',
+    role: 'UX Research & Design Support',
+    org: 'MSR Information Systems',
+    period: 'May 2023 – May 2025',
+    description:
+      "Two years spent making technical systems make sense to the people actually using them. Not through interfaces, but through clearer documentation, simpler language, and information that was easier to find. It's where I first understood that most of design is really just reducing confusion.",
   },
 ]
 
@@ -139,9 +143,8 @@ export interface SocialLink {
   href: string
 }
 
-// PLACEHOLDER — replace # with real profile URLs
 export const socialLinks: SocialLink[] = [
-  { label: 'LinkedIn', href: '#' },
-  { label: 'GitHub', href: '#' },
-  { label: 'Read.cv', href: '#' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/afeefamalik' },
+  { label: 'GitHub', href: 'https://github.com/afeefaam' },
+  { label: 'Resume', href: 'https://drive.google.com/file/d/1Q0eInFTyBjdOsowdtf_6iGy5pUDFAH3Z/view?usp=sharing' },
 ]

@@ -11,6 +11,11 @@ export interface ProjectImage {
   src: string | null
   alt: string
   tone?: 'sage' | 'clay' | 'ink' | 'neutral' | 'lavender'
+  /** 'cover' (default) fills the frame and crops. 'contain' shows the whole
+   *  image with no cropping, letterboxed on a soft background — use this
+   *  when the source aspect ratio doesn't match the frame (e.g. a portrait
+   *  phone screenshot in a wide banner slot). */
+  fit?: 'cover' | 'contain'
 }
 
 export type ContentBlock =
@@ -60,6 +65,10 @@ export interface Project {
   year: string
   isConfidential: boolean
   isFeatured?: boolean
+  /** Set to false to hide from the homepage grid, featured-project pick, and
+   *  next-project cycling — without deleting anything. The case study route
+   *  still works if visited directly. Omit (or true) to keep it public. */
+  isPublished?: boolean
   /** Optional recognition, e.g. a hackathon/sprint award — shown on the card and in the case study sidebar. */
   award?: string
   links: ProjectLink[]

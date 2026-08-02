@@ -1,4 +1,4 @@
-import { projects } from '../../data/projects'
+import { publishedProjects } from '../../data/projects'
 import { RevealGroup, RevealGroupItem } from '../motion/RevealGroup'
 import { Container } from '../ui/Container'
 import { SectionHeading } from '../ui/SectionHeading'
@@ -25,12 +25,12 @@ export function SelectedWork() {
         <SectionHeading
           eyebrow="Selected Work"
           title="A few projects worth a closer look."
-          subtitle="Each one starts from a specific, human problem — the case studies walk through how I got from that problem to the interface."
+          subtitle="Each one starts from a specific, real problem. The case studies walk through how I got from that problem to the interface."
         />
 
         <RevealGroup as="div" className="mt-stack-lg grid grid-cols-1 gap-x-stack-md gap-y-stack-lg md:grid-cols-12">
-          {projects.map((project, index) => {
-            const { span, aspect } = layoutFor(index, projects.length)
+          {publishedProjects.map((project, index) => {
+            const { span, aspect } = layoutFor(index, publishedProjects.length)
             const isLead = index === 0
             return (
               <RevealGroupItem key={project.id} className={`${span} ${isLead ? 'relative' : ''}`}>
