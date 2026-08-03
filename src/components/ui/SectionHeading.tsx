@@ -28,7 +28,7 @@ export function SectionHeading({
   const titleSize = size === 'lg' ? 'text-display-3 md:text-display-2' : 'text-display-3'
 
   return (
-    <div className={`flex flex-col gap-stack-xs ${alignClasses} ${className}`}>
+    <div className={`flex flex-col gap-stack-sm ${alignClasses} ${className}`}>
       {eyebrow && (
         <span className="text-xs font-semibold uppercase tracking-[0.14em] text-sage">
           {eyebrow}

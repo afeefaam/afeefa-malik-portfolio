@@ -11,22 +11,23 @@ export function ExperienceTimelineItem({ entry, index }: ExperienceTimelineItemP
   return (
     <RevealGroupItem
       as="li"
-      className="group -mx-4 flex flex-col gap-stack-xs rounded-lg px-4 py-stack-sm transition-colors duration-300 first:pt-0 last:pb-0 hover:bg-surface sm:flex-row sm:items-baseline sm:gap-stack-md"
+      className="group -mx-4 grid grid-cols-1 gap-stack-xs rounded-lg px-4 py-stack-sm transition-colors duration-300 first:pt-0 last:pb-0 hover:bg-surface sm:grid-cols-[2.5rem_1fr_10rem] sm:items-baseline sm:gap-x-stack-md sm:gap-y-0"
     >
-      <span className="font-display text-sm text-lavender-deep sm:w-10 sm:shrink-0">
+      <span className="font-display text-sm text-lavender-deep">
         {String(index + 1).padStart(2, '0')}
       </span>
 
-      <div className="flex flex-1 flex-col gap-2">
-        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-          <h3 className="font-display text-xl text-ink">{entry.role}</h3>
-          <span className="shrink-0 text-sm text-ink-soft">{entry.period}</span>
-        </div>
+      <div className="flex flex-col gap-2">
+        <h3 className="font-display text-xl text-ink">{entry.role}</h3>
         <div>
           <Tag tone="lavender">{entry.org}</Tag>
         </div>
-        <p className="max-w-xl text-ink-soft">{entry.description}</p>
+        <p className="max-w-3xl text-ink-soft">{entry.description}</p>
       </div>
+
+      {/* Fixed-width column (not content-sized) so every date lines up at
+          the same x-position regardless of how long the role title is. */}
+      <span className="text-sm text-ink-soft sm:text-right">{entry.period}</span>
     </RevealGroupItem>
   )
 }

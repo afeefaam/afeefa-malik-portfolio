@@ -64,12 +64,17 @@
   --shadow-soft: 0 20px 40px -12px rgba(31, 31, 31, 0.08);
   --shadow-soft-lg: 0 30px 60px -15px rgba(31, 31, 31, 0.1);
 
-  /* Vertical rhythm between/within editorial sections */
+  /* Vertical rhythm between/within editorial sections. Fixed 8/16/24/40/64/96/128
+     scale — stack-xl is what every major section (Hero, Selected Work,
+     Experience, Contact) uses for its own top/bottom padding, sized to the
+     80-112px "major section padding" target rather than a full-viewport gap. */
+  --spacing-stack-2xs: 8px;
   --spacing-stack-xs: 16px;
   --spacing-stack-sm: 24px;
-  --spacing-stack-md: 48px;
-  --spacing-stack-lg: 96px;
-  --spacing-stack-xl: 160px;
+  --spacing-stack-md: 40px;
+  --spacing-stack-lg: 64px;
+  --spacing-stack-xl: 96px;
+  --spacing-stack-2xl: 128px;
 
   /* Editorial content width — wider than Tailwind's default max-width scale */
   --width-8xl: 1440px;

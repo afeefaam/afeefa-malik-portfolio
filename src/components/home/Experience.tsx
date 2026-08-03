@@ -10,7 +10,7 @@ export function Experience() {
       <Container>
         <SectionHeading eyebrow="Experience" title="Where I've worked and learned." />
 
-        <RevealGroup as="ul" className="mt-stack-lg flex max-w-3xl flex-col divide-y divide-border">
+        <RevealGroup as="ul" className="mt-stack-lg flex max-w-6xl flex-col divide-y divide-border">
           {experience.map((entry, index) => (
             <ExperienceTimelineItem
               key={`${entry.role}-${entry.org}`}

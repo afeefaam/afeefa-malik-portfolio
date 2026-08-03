@@ -339,8 +339,7 @@ export const projects: Project[] = [
         kind: 'figma',
         url: 'https://www.figma.com/proto/RjKf26SlzkyEkjzvXkG1r1/app?node-id=1-7850&p=f&t=RBfT0DXcufZcb1JH-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=22%3A725&show-proto-sidebar=1',
       },
-      { kind: 'pdf', url: '#', label: 'View Case Study' },
-      { kind: 'behance', url: '#' },
+      { kind: 'behance', url: 'https://www.behance.net/gallery/226524523/Setlist-Live-Concert-UX-Case-Study' },
     ],
     meta: {
       role: 'UX Designer',
