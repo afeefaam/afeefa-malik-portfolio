@@ -1,8 +1,21 @@
 import type { Project } from './projects.types'
 import closeTheCurtainCover from '../assets/images/close-the-curtain-cover.jpg'
 import setlistCover from '../assets/images/setlist-cover.jpg'
-import lorisRedesignCover from '../assets/images/loris-redesign-cover.jpg'
 import markazCover from '../assets/images/markaz-cover.jpg'
+import setlistTop from '../assets/images/setlist-top.jpg'
+import ctcTop from '../assets/images/ctc-top.jpg'
+import markazTop from '../assets/images/markaz-top.jpg'
+import setlistUi from '../assets/images/setlist-ui.jpg'
+import setlistFinal from '../assets/images/setlist-final.jpg'
+import ctcFinal from '../assets/images/ctc-final.jpg'
+import markazUi from '../assets/images/markaz-ui.jpg'
+import markazFinal from '../assets/images/markaz-final.jpg'
+import ctcUi from '../assets/images/ctc-ui.jpg'
+import failureTop from '../assets/images/failure-top.jpg'
+import failureHomepage from '../assets/images/failure-homepage.jpg'
+import failureUi from '../assets/images/failure-ui.jpg'
+import failureUi2 from '../assets/images/failure-ui2.jpg'
+import failureFinal from '../assets/images/failure-final.jpg'
 
 // PLACEHOLDER PROJECTS — realistic example content standing in for Afeefa's
 // real case studies. Each project is a self-contained object in this array;
@@ -138,9 +151,19 @@ export const projects: Project[] = [
       alt: 'Markaz countdown landing page cover',
       tone: 'lavender',
     },
+    heroImage: {
+      src: markazTop,
+      alt: 'Markaz countdown landing page cover',
+      tone: 'lavender',
+    },
     year: '2025',
     isConfidential: false,
-    links: [{ kind: 'figma', url: '#' }],
+    links: [
+      {
+        kind: 'figma',
+        url: 'https://www.figma.com/proto/QlvK9FSXWSQAhcKiAsSbuh/Markaz-Countdown-UI?node-id=1-2&p=f&t=5jlGAMgfHQQD81zY-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2',
+      },
+    ],
     meta: {
       role: 'UI Designer',
       timeline: 'December 2025',
@@ -215,9 +238,10 @@ export const projects: Project[] = [
           },
           {
             kind: 'image',
+            size: 'sm',
             image: {
-              src: null,
-              alt: 'PLACEHOLDER — replace with a real mockup of Markaz displayed on a mobile device',
+              src: markazUi,
+              alt: 'Markaz countdown page displayed on a mobile device',
               tone: 'clay',
             },
           },
@@ -261,12 +285,12 @@ export const projects: Project[] = [
           },
           {
             kind: 'image',
+            size: 'sm',
             image: {
-              src: null,
-              alt: 'PLACEHOLDER — replace with a real screenshot of the final Markaz countdown page',
+              src: markazFinal,
+              alt: 'Final Markaz countdown page',
               tone: 'lavender',
             },
-            bleed: true,
           },
           {
             kind: 'paragraph',
@@ -301,11 +325,20 @@ export const projects: Project[] = [
       alt: 'Setlist app screens showing the home dashboard with a live artist card for The Weeknd, live song voting, and the ticket wallet',
       tone: 'sage',
     },
+    heroImage: {
+      src: setlistTop,
+      alt: 'Setlist app screens showing the home dashboard with a live artist card for The Weeknd, live song voting, and the ticket wallet',
+      tone: 'sage',
+    },
     year: '2025',
     isConfidential: false,
     isFeatured: true,
     award: '🏆 Most Innovative Award',
     links: [
+      {
+        kind: 'figma',
+        url: 'https://www.figma.com/proto/RjKf26SlzkyEkjzvXkG1r1/app?node-id=1-7850&p=f&t=RBfT0DXcufZcb1JH-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=22%3A725&show-proto-sidebar=1',
+      },
       { kind: 'pdf', url: '#', label: 'View Case Study' },
       { kind: 'behance', url: '#' },
     ],
@@ -396,10 +429,11 @@ export const projects: Project[] = [
           },
           {
             kind: 'imageGrid',
+            aspectRatio: '9 / 16',
             images: [
               {
-                src: null,
-                alt: 'PLACEHOLDER — replace with a real mockup of the real-time song voting screen',
+                src: setlistUi,
+                alt: 'Setlist app real-time song voting screen',
                 tone: 'clay',
               },
               {
@@ -456,11 +490,10 @@ export const projects: Project[] = [
           {
             kind: 'image',
             image: {
-              src: null,
-              alt: 'PLACEHOLDER — replace with a real screenshot of the final Setlist app',
+              src: setlistFinal,
+              alt: 'Final Setlist app screens',
               tone: 'lavender',
             },
-            bleed: true,
           },
           {
             kind: 'paragraph',
@@ -495,9 +528,20 @@ export const projects: Project[] = [
       alt: 'Close the Curtain concept: a browser extension popup over a paused YouTube video, showing the "Enable Close the Curtains" toggle and description',
       tone: 'ink',
     },
+    heroImage: {
+      src: ctcTop,
+      alt: 'Close the Curtain concept: a browser extension popup over a paused YouTube video, showing the "Enable Close the Curtains" toggle and description',
+      tone: 'ink',
+    },
     year: '2026',
     isConfidential: false,
-    links: [{ kind: 'figma', url: '#' }],
+    award: '🥇 1st Place, Open Innovation Track',
+    links: [
+      {
+        kind: 'figma',
+        url: 'https://www.figma.com/proto/cLUUGQM1b17xfL6InNaImj/Close-the-Curtains?node-id=206-347&starting-point-node-id=206%3A347&scaling=scale-down&content-scaling=fixed&t=JELHyLQUk1VGPuGa-1',
+      },
+    ],
     meta: {
       role: 'Product Designer',
       timeline: 'January 2026',
@@ -575,8 +619,8 @@ export const projects: Project[] = [
           {
             kind: 'image',
             image: {
-              src: null,
-              alt: 'PLACEHOLDER — replace with a real mockup of the viewing-mode toggle and scene-skip transition',
+              src: ctcUi,
+              alt: 'Close the Curtain viewing-mode toggle and scene-skip transition',
               tone: 'clay',
             },
           },
@@ -639,11 +683,10 @@ export const projects: Project[] = [
           {
             kind: 'image',
             image: {
-              src: null,
-              alt: 'PLACEHOLDER — replace with a real screenshot of the final Close the Curtain concept',
+              src: ctcFinal,
+              alt: 'Final Close the Curtain concept screens',
               tone: 'ink',
             },
-            bleed: true,
           },
           {
             kind: 'paragraph',
@@ -668,23 +711,34 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: 'loris-redesign',
-    slug: 'loris-redesign',
-    title: 'LORIS Redesign',
-    tagline: 'Simplifying a legacy student portal through clearer navigation and modern interaction design.',
-    tags: ['UX Design', 'Enterprise UX', 'Information Architecture', 'Interaction Design'],
+    id: 'failure-museum',
+    slug: 'failure-museum',
+    title: 'Failure Museum',
+    tagline: 'Helping students rebuild confidence through failure.',
+    tags: ['Product Design', 'Desktop App'],
     coverImage: {
-      src: lorisRedesignCover,
-      alt: 'Redesigned LORIS student portal dashboard showing simplified navigation and grouped menus',
+      src: failureHomepage,
+      alt: 'Failure Museum gallery screen',
+      tone: 'clay',
+    },
+    heroImage: {
+      src: failureTop,
+      alt: 'Failure Museum gallery screen',
       tone: 'clay',
     },
     year: '2025',
     isConfidential: false,
-    links: [{ kind: 'behance', url: '#' }],
+    award: '🥉 3rd Place',
+    links: [
+      {
+        kind: 'figma',
+        url: 'https://www.figma.com/proto/IutGumnI2tkiLvedpXdLwy/The-Failure-Museum?node-id=2424-413&starting-point-node-id=2489%3A103&scaling=scale-down&content-scaling=fixed&t=la1PRD53uiONcg5X-1',
+      },
+    ],
     meta: {
-      role: 'UX Designer (Team Lead)',
-      timeline: 'May 2025',
-      team: 'Team of 5, with Amrit Nannar, Jania Walia, Laura Lam & Gaooshan Sathiyakumar',
+      role: 'Product Designer',
+      timeline: '48-hour UXL Designathon',
+      team: 'Team of 4 designers',
       tools: ['Figma'],
     },
     sections: [
@@ -694,11 +748,15 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'LORIS, Laurier’s Online Registration and Information System, is what students and faculty use for course registration, tuition, grades, and most of the university’s day-to-day administrative tasks. It’s powerful, but years of accumulated interface complexity had made routine tasks harder than they needed to be.',
+            text: 'Our challenge was to design something around the impact AI is having on students. We expected to land on a productivity tool. Instead, we found a deeper problem.',
           },
           {
             kind: 'paragraph',
-            text: 'I led a team of five to redesign the experience: clearer navigation, less cognitive load, and an interface that felt intuitive, without touching the functionality people already depended on.',
+            text: 'Students were becoming afraid to fail. Many reached for ChatGPT before attempting a problem themselves, optimizing for the right answer instead of actually learning.',
+          },
+          {
+            kind: 'paragraph',
+            text: 'The more we researched, the clearer it became. This wasn’t an AI problem. It was a confidence problem. Failure Museum is what we built in response: a space for students to rebuild confidence in their own thinking, not a tool to replace AI.',
           },
         ],
       },
@@ -708,165 +766,153 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'Students rely on LORIS for some of the most consequential parts of university life, yet using it day to day often felt like the opposite of that experience.',
+            text: 'Across a 48-hour designathon, we watched the same pattern show up again and again in how students actually worked.',
           },
           {
             kind: 'list',
             items: [
-              'Cluttered, text-heavy screens',
-              'Confusing navigation',
-              'Inconsistent visual hierarchy',
-              'Unnecessary clicks to complete routine tasks',
-              'Outdated interface patterns',
+              'They reached for AI before attempting a problem themselves',
+              'They avoided mistakes instead of learning from them',
+              'They measured success by how fast they got an answer, not by what they understood',
+              'They erased failure instead of reflecting on it',
             ],
           },
           {
             kind: 'paragraph',
-            text: 'Our goal was specific: help students complete common tasks more efficiently and make the platform feel approachable and modern, without changing the core functionality people already relied on.',
+            text: 'Every one of those habits quietly costs a student the chance to actually learn.',
           },
         ],
       },
       {
-        type: 'behindTheDesign',
-        heading: 'My Role',
+        type: 'research',
+        heading: 'Research',
         blocks: [
           {
             kind: 'paragraph',
-            text: 'I led a five-person team with Amrit Nannar, Jania Walia, Laura Lam, and Gaooshan Sathiyakumar, contributing to UX strategy, interaction design, interface design, and the overall direction of the project.',
+            text: 'We talked to students about how they actually use AI day to day, not how they say they use it. A few patterns kept surfacing.',
           },
           {
-            kind: 'paragraph',
-            text: 'Alongside the team, I helped identify the platform’s usability issues, prioritize which ones were worth redesigning first, and build the high-fidelity concepts that became the final interface.',
-          },
-        ],
-      },
-      {
-        type: 'process',
-        heading: 'Design Decisions',
-        blocks: [
-          { kind: 'paragraph', text: 'Four principles guided every redesign decision.' },
-          { kind: 'heading', text: 'Reducing Cognitive Load', level: 3 },
-          {
-            kind: 'paragraph',
-            text: 'Simpler layouts and a clearer hierarchy meant students could focus on the task in front of them, registering for a course, checking a grade, instead of parsing a dense screen just to find where to start.',
-          },
-          { kind: 'heading', text: 'Prioritizing Frequent Actions', level: 3 },
-          {
-            kind: 'paragraph',
-            text: 'The tasks students reach for constantly, registration, grades, schedules, were surfaced directly on the dashboard instead of buried a few clicks deep, so the most common path is also the shortest one.',
-          },
-          {
-            kind: 'imageGrid',
-            images: [
-              {
-                src: null,
-                alt: 'PLACEHOLDER — replace with early wireframes exploring the redesigned dashboard',
-                tone: 'neutral',
-              },
-              {
-                src: null,
-                alt: 'PLACEHOLDER — replace with a user flow diagram for course registration',
-                tone: 'clay',
-              },
+            kind: 'list',
+            items: [
+              'Students reached for AI before attempting questions themselves, almost automatically',
+              'Many admitted they no longer felt confident solving problems on their own',
+              'That dependency was building passive learning habits, not efficient ones',
+              'Confidence dropped the moment students stopped practicing productive struggle',
             ],
           },
-          { kind: 'heading', text: 'Improving Navigation', level: 3 },
           {
             kind: 'paragraph',
-            text: 'Related tasks were grouped together under clearer labels, cutting down the number of menus someone has to guess through to find what they need.',
-          },
-          { kind: 'heading', text: 'Creating Visual Consistency', level: 3 },
-          {
-            kind: 'paragraph',
-            text: 'Consistent spacing, typography, and a small set of reusable components made the interface predictable. Once you learn one screen, the rest behave the way you’d expect.',
-          },
-        ],
-      },
-      {
-        type: 'iterations',
-        heading: 'The Solution',
-        blocks: [
-          { kind: 'heading', text: 'Customizable Homepage', level: 3 },
-          {
-            kind: 'paragraph',
-            text: 'Students can arrange their homepage around what they actually use, so the first screen they see is built around their own routine, not a generic default.',
-          },
-          { kind: 'heading', text: 'Streamlined Dashboard', level: 3 },
-          {
-            kind: 'paragraph',
-            text: 'A single, decluttered view surfaces the essentials: registration status, grades, holds. No scavenger hunt across separate pages required.',
-          },
-          { kind: 'heading', text: 'Clearer Navigation & Grouped Menus', level: 3 },
-          {
-            kind: 'paragraph',
-            text: 'Related actions live together under plain-language labels, replacing the maze of legacy menu items with something closer to how students actually think about their tasks.',
-          },
-          {
-            kind: 'image',
-            image: {
-              src: null,
-              alt: 'PLACEHOLDER — replace with a real mockup of the streamlined dashboard',
-              tone: 'sage',
-            },
-            bleed: true,
-          },
-          { kind: 'heading', text: 'Improved Search', level: 3 },
-          {
-            kind: 'paragraph',
-            text: 'A more capable search means students can jump straight to what they need instead of navigating there step by step.',
-          },
-          { kind: 'heading', text: 'Responsive Layouts', level: 3 },
-          {
-            kind: 'paragraph',
-            text: 'The redesigned interface adapts cleanly across screen sizes, since a meaningful share of students check LORIS from a phone between classes.',
+            text: 'The pattern wasn’t really about the tool. It was about what the tool let students avoid.',
           },
         ],
       },
       {
         type: 'insights',
-        heading: 'Design System',
+        heading: 'Key Insights',
         blocks: [
           {
             kind: 'paragraph',
-            text: 'To keep the redesign consistent across dozens of screens, we put together a small design system alongside the interface work: a shared language the rest of the redesign could draw from.',
+            text: 'Somewhere in these conversations, one line reframed the entire project for us.',
           },
           {
-            kind: 'list',
-            items: [
-              'Typography',
-              'Color palette',
-              'Buttons & components',
-              'Spacing & layout grid',
-              'Icons',
-              'Navigation patterns',
+            kind: 'quote',
+            text: 'People don’t actually fear failure. They fear what failure says about them.',
+          },
+          {
+            kind: 'paragraph',
+            text: 'That distinction changed everything. We weren’t designing against a fear of being wrong. We were designing against a fear of being seen as not good enough.',
+          },
+          {
+            kind: 'paragraph',
+            text: 'So we asked a simpler question: how might we help students embrace failure as part of learning, instead of something to avoid?',
+          },
+        ],
+      },
+      {
+        type: 'process',
+        heading: 'Design Direction',
+        blocks: [
+          {
+            kind: 'paragraph',
+            text: 'We didn’t want to build another productivity tool bolted onto the same anxiety. We wanted to build something that changed how failure felt.',
+          },
+          {
+            kind: 'paragraph',
+            text: 'We kept coming back to the idea of a museum. Museums preserve history openly, artifacts, mistakes, and all. We wondered what it would look like if failure got the same treatment: documented, curated, and revisited, instead of quietly deleted.',
+          },
+          {
+            kind: 'paragraph',
+            text: 'Failure Museum isn’t about celebrating failure. It’s about making the act of learning from it feel normal instead of shameful.',
+          },
+        ],
+      },
+      {
+        type: 'iterations',
+        heading: 'Solution',
+        blocks: [
+          {
+            kind: 'paragraph',
+            text: 'We built Failure Museum around a simple idea: let students document a real mistake, and what it taught them, the same way a museum documents an artifact.',
+          },
+          { kind: 'heading', text: 'Failure Gallery', level: 3 },
+          {
+            kind: 'paragraph',
+            text: 'A place to browse other students’ stories and realize you’re not the only one who got it wrong.',
+          },
+          {
+            kind: 'imageGrid',
+            aspectRatio: '5 / 3',
+            images: [
+              {
+                src: failureUi2,
+                alt: 'Failure Museum reflection prompts, including "The Realization" and a written response',
+                tone: 'clay',
+              },
+              {
+                src: failureUi,
+                alt: 'Failure Museum personal exhibit profile screen',
+                tone: 'neutral',
+              },
             ],
           },
+          { kind: 'heading', text: 'Reflection Prompts', level: 3 },
           {
-            kind: 'image',
-            image: {
-              src: null,
-              alt: 'PLACEHOLDER — replace with the real LORIS design system sheet (typography, color, components)',
-              tone: 'lavender',
-            },
+            kind: 'paragraph',
+            text: 'Structured questions that push past "I got it wrong" into what actually happened and why.',
+          },
+          { kind: 'heading', text: 'Misconception vs. Realization Cards', level: 3 },
+          {
+            kind: 'paragraph',
+            text: 'A simple before-and-after format that makes the moment of learning visible.',
+          },
+          { kind: 'heading', text: 'Community Interaction', level: 3 },
+          {
+            kind: 'paragraph',
+            text: 'Light, supportive engagement around other people’s lessons, not performance or perfection.',
+          },
+          { kind: 'heading', text: 'A Warm, Welcoming Environment', level: 3 },
+          {
+            kind: 'paragraph',
+            text: 'Visual and tonal choices that quietly remove the shame usually attached to being wrong. Every one of these features exists to build confidence, not chase a perfect answer.',
           },
         ],
       },
       {
         type: 'finalDesign',
-        heading: 'Final Design',
+        heading: 'Final Designs',
         blocks: [
           {
             kind: 'paragraph',
-            text: 'What shipped is a cleaner, more intuitive LORIS, one built around what students are actually trying to do, rather than the system’s internal structure. The goal from the start was to let people focus on finishing a task, not on figuring out how the platform works.',
+            text: 'The final product feels closer to a personal journal than a productivity app. Warm neutral tones, editorial type, and scrapbook-style layouts were all deliberate choices, meant to make revisiting a mistake feel more like flipping through a journal than filing a report.',
           },
           {
             kind: 'image',
+            size: 'md',
             image: {
-              src: null,
-              alt: 'PLACEHOLDER — replace with a real screenshot of the final redesigned LORIS interface',
+              src: failureFinal,
+              alt: 'Final Failure Museum misconception and realization cards',
               tone: 'clay',
             },
-            bleed: true,
           },
         ],
       },
@@ -876,11 +922,15 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'Leading this redesign reinforced something I keep coming back to: design around what people are trying to do, not around how the existing system happens to be structured.',
+            text: 'This project taught me how much research can change a product’s direction if you actually let it.',
           },
           {
             kind: 'paragraph',
-            text: 'It sharpened my understanding of information architecture and interface hierarchy, and showed me how much more approachable a complex administrative system can feel with a few thoughtful, consistent decisions.',
+            text: 'We started out thinking we were solving AI dependency. Research showed us we were solving confidence.',
+          },
+          {
+            kind: 'paragraph',
+            text: 'The biggest lesson I took from those 48 hours was not getting attached to my first idea. Good research should change your direction, and the version of Failure Museum we shipped only exists because we let it.',
           },
         ],
       },

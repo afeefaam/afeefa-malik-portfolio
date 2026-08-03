@@ -21,8 +21,19 @@ export interface ProjectImage {
 export type ContentBlock =
   | { kind: 'paragraph'; text: string }
   | { kind: 'heading'; text: string; level?: 2 | 3 }
-  | { kind: 'image'; image: ProjectImage; caption?: string; bleed?: boolean }
-  | { kind: 'imageGrid'; images: ProjectImage[] }
+  | {
+      kind: 'image'
+      image: ProjectImage
+      caption?: string
+      bleed?: boolean
+      /** Constrains width instead of filling the text column.
+       *  'sm' (~384px) — small device mockups, mostly decorative.
+       *  'md' (~512px) — screenshots with real text/detail worth reading
+       *  that would otherwise get cropped-feeling or hard to read at full
+       *  column width. */
+      size?: 'sm' | 'md'
+    }
+  | { kind: 'imageGrid'; images: ProjectImage[]; aspectRatio?: string }
   | { kind: 'statGrid'; stats: { value: string; label: string }[] }
   | { kind: 'quote'; text: string; attribution?: string }
   | { kind: 'list'; items: string[] }

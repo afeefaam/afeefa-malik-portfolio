@@ -17,9 +17,11 @@ export function ContentBlockRenderer({ block }: ContentBlockRendererProps) {
       return <Heading className="font-display text-xl text-ink">{block.text}</Heading>
     }
 
-    case 'image':
+    case 'image': {
+      const sizeClass = block.size === 'sm' ? 'max-w-sm' : block.size === 'md' ? 'max-w-lg' : ''
+      const wrapperClass = block.bleed ? '-mx-6 sm:-mx-10 lg:-mx-16' : sizeClass
       return (
-        <figure className={block.bleed ? '-mx-6 sm:-mx-10 lg:-mx-16' : ''}>
+        <figure className={wrapperClass}>
           {block.image.src ? (
             <img
               src={block.image.src}
@@ -31,7 +33,7 @@ export function ContentBlockRenderer({ block }: ContentBlockRendererProps) {
               alt={block.image.alt}
               tone={block.image.tone}
               radius="xl"
-              aspectRatio="16 / 9"
+              aspectRatio={block.size ? '3 / 4' : '16 / 9'}
             />
           )}
           {block.caption && (
@@ -39,8 +41,10 @@ export function ContentBlockRenderer({ block }: ContentBlockRendererProps) {
           )}
         </figure>
       )
+    }
 
-    case 'imageGrid':
+    case 'imageGrid': {
+      const gridRatio = block.aspectRatio ?? '4 / 3'
       return (
         <div className="grid grid-cols-1 gap-stack-sm sm:grid-cols-2">
           {block.images.map((image) =>
@@ -50,7 +54,7 @@ export function ContentBlockRenderer({ block }: ContentBlockRendererProps) {
                 src={image.src}
                 alt={image.alt}
                 className="w-full rounded-lg object-cover"
-                style={{ aspectRatio: '4 / 3' }}
+                style={{ aspectRatio: gridRatio }}
               />
             ) : (
               <ImagePlaceholder
@@ -58,12 +62,13 @@ export function ContentBlockRenderer({ block }: ContentBlockRendererProps) {
                 alt={image.alt}
                 tone={image.tone}
                 radius="lg"
-                aspectRatio="4 / 3"
+                aspectRatio={gridRatio}
               />
             ),
           )}
         </div>
       )
+    }
 
     case 'statGrid':
       return (
