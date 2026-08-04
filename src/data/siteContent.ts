@@ -1,5 +1,4 @@
-// PLACEHOLDER CONTENT — everything in this file is realistic example copy,
-// not final. Replace with Afeefa's real bio, experience, and contact details.
+// Afeefa's real bio, experience, and contact details.
 
 import type { ProjectImage } from './projects.types'
 import karamiaPhoto from '../assets/images/karamia.jpg'
@@ -22,19 +21,19 @@ export const portrait: ProjectImage = {
 }
 
 export const hero = {
-  eyebrow: 'UX Designer · CS Student',
+  eyebrow: 'UX Designer & Computer Science Student',
   greeting: "Hi, I'm Afeefa.",
   // Cycled by the typewriter on the second headline line. Kept short and
   // parallel in structure — each one stands alone as "Hi, I'm Afeefa. ___."
   roles: [
     'UX Designer.',
-    'Computer Science Student.',
-    'Frontend Developer.',
     'Community Builder.',
-    'Hackathon Enthusiast.',
+    'Computer Science Student.',
+    'Creative Problem Solver.',
+    'Always Learning.',
   ],
   subhead:
-    "I study computer science and design interfaces. I'm always trying to find the quiet, obvious solution underneath a complicated problem, then build it well enough that no one notices the work it took.",
+    "I've always loved building things. Whether it's a digital product, a community, or an event, I'm happiest creating experiences that bring people together and make life a little easier.",
   primaryCta: { label: 'Selected work', href: '#work' },
   secondaryCta: { label: 'About me', href: '#about' },
 }
@@ -108,25 +107,25 @@ export interface ExperienceEntry {
 
 export const experience: ExperienceEntry[] = [
   {
-    role: 'UX Design Intern',
+    role: 'Web Design Student',
     org: 'BlackBerry',
     period: 'May 2026 – Aug 2026',
     description:
-      'This was my first real taste of enterprise design. I worked on software built for secure government and business environments, where a missed contrast ratio actually mattered to someone. Auditing accessibility and sitting in on developer conversations taught me how much invisible care shapes products people never think twice about.',
+      'Conducted heuristic evaluations and accessibility audits for enterprise products, redesigned internal documentation in Figma, and created production-ready visual assets. Collaborated with cross-functional teams to improve usability, consistency, and the overall user experience.',
   },
   {
-    role: 'Product & UI Designer (Volunteer)',
+    role: 'Graphic Designer & UX Designer (Volunteer)',
     org: 'Markaz',
     period: 'Oct 2025 – Mar 2026',
     description:
-      "Markaz didn't exist yet when I joined. No users, no brand, barely a product. Building its visual identity and onboarding from nothing taught me what it actually feels like to balance what people need against what a small team can realistically ship before launch.",
+      'Designed the pre-launch user experience and visual identity for a community platform. Created UI designs, reusable components, and branding assets while collaborating closely with developers to refine the product before launch.',
   },
   {
     role: 'UX Research & Design Support',
     org: 'MSR Information Systems',
     period: 'May 2023 – May 2025',
     description:
-      "Two years spent making technical systems make sense to the people actually using them. Not through interfaces, but through clearer documentation, simpler language, and information that was easier to find. It's where I first understood that most of design is really just reducing confusion.",
+      'Conducted UX research, improved information architecture, and redesigned technical documentation to simplify complex workflows. Worked with cross-functional teams to make systems and information more intuitive and accessible.',
   },
 ]
 

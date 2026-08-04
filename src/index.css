@@ -90,9 +90,17 @@
 
   html {
     scroll-behavior: auto; /* smooth scroll is handled in JS so it can respect prefers-reduced-motion */
+    overflow-x: hidden;
   }
 
+  /* Several decorative glow/blur elements (Hero, About, Contact) are
+     intentionally sized larger than their container and bleed past its
+     edge — correct at rest, but on narrow viewports that bleed can add to
+     the page's own scrollable width. Clipping at the root (not on each
+     glow individually) stops that without touching the vertical scroll
+     container, so position: sticky elsewhere is unaffected. */
   body {
+    overflow-x: hidden;
     background-color: var(--color-bg);
     color: var(--color-ink);
     font-family: var(--font-sans);
@@ -101,9 +109,37 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-sage);
+    outline: 2px solid var(--color-lavender-deep);
     outline-offset: 3px;
     border-radius: 4px;
+  }
+}
+
+/* One shared layout primitive for each Experience entry, reused instead of
+   duplicating mobile/desktop markup. Mobile stacks in reading order (number,
+   role, org, date, description); the desktop 3-column grid only exists at
+   sm+, with the date in its own fixed track so it can't drift per entry. */
+@layer components {
+  .experience-grid {
+    display: grid;
+    grid-template-areas: "number" "role" "org" "date" "description";
+  }
+
+  @media (min-width: 640px) {
+    .experience-grid {
+      grid-template-columns: 2.5rem 1fr 8rem;
+      grid-template-areas:
+        "number role  date"
+        ".      org   ."
+        ".      description description";
+      align-items: baseline;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .experience-grid {
+      grid-template-columns: 2.5rem 1fr 10rem;
+    }
   }
 }
 

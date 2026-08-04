@@ -20,6 +20,8 @@ function Photo({
     <img
       src={image.src}
       alt={image.alt}
+      loading="lazy"
+      decoding="async"
       className={`w-full rounded-lg object-cover shadow-soft ${className}`}
       style={{ aspectRatio, objectPosition }}
     />
@@ -36,11 +38,11 @@ function Photo({
 
 export function About() {
   return (
-    <section id="about" className="bg-sunken py-stack-lg">
+    <section id="about" className="scroll-mt-20 bg-sunken py-stack-lg">
       <Container className="flex flex-col gap-stack-lg">
         {/* Beat 1 — a small portrait beside the introduction, not a full column */}
         <RevealOnScroll className="flex flex-col items-start gap-stack-sm sm:flex-row sm:items-center sm:gap-stack-md">
-          <div className="w-80 shrink-0">
+          <div className="w-64 shrink-0 sm:w-80">
             <Photo image={portrait} aspectRatio="4 / 5" className="rotate-2" objectPosition="32% center" />
           </div>
           <SectionHeading eyebrow={about.eyebrow} title={about.title} subtitle={about.intro} size="md" />
@@ -66,7 +68,7 @@ export function About() {
             centered flex row rather than a float, so a short paragraph
             beside a tall photo never leaves an empty gap underneath. */}
         <RevealOnScroll className="flex flex-col items-center gap-stack-sm sm:flex-row-reverse sm:items-center sm:gap-stack-md">
-          <figure className="w-96 shrink-0">
+          <figure className="w-56 shrink-0 sm:w-96">
             <Photo image={caseHacksImage} aspectRatio="4 / 5" className="-rotate-2" />
             <figcaption className="mt-1.5 text-center text-xs italic text-ink-soft sm:text-left">
               {about.caseHacksCaption}
@@ -80,7 +82,7 @@ export function About() {
 
         {/* Beat 5 — outside of design, mirrored: photo on the left this time */}
         <RevealOnScroll className="flex flex-col items-center gap-stack-sm sm:flex-row sm:items-center sm:gap-stack-md">
-          <figure className="w-72 shrink-0">
+          <figure className="w-56 shrink-0 sm:w-72">
             <Photo image={bobaImage} aspectRatio="4 / 5" className="rotate-3" />
             <figcaption className="mt-1.5 text-center text-xs italic text-ink-soft sm:text-left">
               {about.bobaCaption}

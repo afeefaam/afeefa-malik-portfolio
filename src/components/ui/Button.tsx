@@ -7,7 +7,7 @@ const VARIANT_STYLES: Record<Variant, string> = {
   primary:
     'bg-ink text-bg hover:opacity-90 shadow-soft-sm',
   secondary:
-    'bg-sage-soft text-ink hover:bg-clay-soft',
+    'bg-lavender-soft text-ink hover:bg-clay-soft',
   ghost:
     'bg-transparent text-ink border border-border hover:border-ink',
 }

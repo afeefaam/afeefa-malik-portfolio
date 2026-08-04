@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { NAV_LINKS } from '../../data/navigation'
 import { useActiveSection } from '../../hooks/useActiveSection'
@@ -14,6 +14,35 @@ export function Nav() {
   const activeId = useActiveSection(isHome ? SECTION_IDS : [])
   const reducedMotion = usePrefersReducedMotion()
   const [menuOpen, setMenuOpen] = useState(false)
+
+  // Lock background scroll while the mobile menu overlay is open, and let
+  // Escape close it — matches how any dialog/disclosure should behave.
+  // Plain `overflow: hidden` doesn't reliably stop wheel/touch scroll on
+  // every browser, so the body is pinned in place at its current scroll
+  // offset instead, then restored on close.
+  useEffect(() => {
+    if (!menuOpen) return
+
+    const scrollY = window.scrollY
+    document.body.style.position = 'fixed'
+    document.body.style.top = `-${scrollY}px`
+    document.body.style.left = '0'
+    document.body.style.right = '0'
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMenuOpen(false)
+    }
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.left = ''
+      document.body.style.right = ''
+      window.scrollTo(0, scrollY)
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [menuOpen])
 
   const handleLinkClick = (id: string) => (e: React.MouseEvent) => {
     if (!isHome) return
@@ -63,7 +92,7 @@ export function Nav() {
 
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-full text-ink md:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-full text-ink md:hidden"
           aria-expanded={menuOpen}
           aria-controls="mobile-nav"
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
@@ -89,14 +118,14 @@ export function Nav() {
                   <a
                     href={`#${link.id}`}
                     onClick={handleLinkClick(link.id)}
-                    className="block rounded-md px-2 py-3 text-base text-ink"
+                    className="flex min-h-11 items-center rounded-md px-2 text-base text-ink"
                   >
                     {link.label}
                   </a>
                 ) : (
                   <Link
                     to={{ pathname: '/', hash: `#${link.id}` }}
-                    className="block rounded-md px-2 py-3 text-base text-ink"
+                    className="flex min-h-11 items-center rounded-md px-2 text-base text-ink"
                     onClick={() => setMenuOpen(false)}
                   >
                     {link.label}

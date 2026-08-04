@@ -20,7 +20,7 @@ function layoutFor(index: number, total: number) {
 
 export function SelectedWork() {
   return (
-    <section id="work" className="py-stack-xl">
+    <section id="work" className="scroll-mt-20 py-stack-xl">
       <Container>
         <SectionHeading
           eyebrow="Selected Work"

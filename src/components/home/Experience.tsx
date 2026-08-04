@@ -6,7 +6,7 @@ import { ExperienceTimelineItem } from './ExperienceTimelineItem'
 
 export function Experience() {
   return (
-    <section id="experience" className="py-stack-xl">
+    <section id="experience" className="scroll-mt-20 pt-stack-xl pb-stack-2xl">
       <Container>
         <SectionHeading eyebrow="Experience" title="Where I've worked and learned." />
 

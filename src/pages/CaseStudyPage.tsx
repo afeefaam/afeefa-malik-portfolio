@@ -52,15 +52,19 @@ function CaseStudyContent({ project }: { project: NonNullable<ReturnType<typeof 
           </>
         ) : (
           <Container className="pb-stack-lg">
-            <div className="grid grid-cols-1 gap-stack-lg md:grid-cols-12">
-              <aside className="md:col-span-3">
-                <div className="flex flex-col gap-stack-sm md:sticky md:top-28">
+            {/* Sidebar only at lg+ (1024px) — at tablet widths (768-1023px)
+                a 3/8-column split leaves too little room for either side,
+                so tablet gets the same full-width single column as mobile,
+                just with more breathing room. */}
+            <div className="grid grid-cols-1 gap-stack-lg lg:grid-cols-12">
+              <aside className="lg:col-span-3">
+                <div className="flex flex-col gap-stack-sm lg:sticky lg:top-28">
                   <CaseStudyMeta meta={project.meta} links={project.links} award={project.award} />
                   <CaseStudySectionNav sections={project.sections} />
                 </div>
               </aside>
 
-              <div className="md:col-span-8 md:col-start-5">
+              <div className="lg:col-span-8 lg:col-start-5">
                 {project.sections.map((section, index) => (
                   <CaseStudySection key={section.type} section={section} index={index} />
                 ))}
@@ -78,7 +82,7 @@ function CaseStudyContent({ project }: { project: NonNullable<ReturnType<typeof 
               <span className="text-xs font-semibold uppercase tracking-[0.14em] text-sage">
                 Next project
               </span>
-              <span className="font-display text-display-3 text-ink transition-colors group-hover:text-sage">
+              <span className="font-display text-display-3 text-ink transition-colors group-hover:text-lavender-deep">
                 {nextProject.title} →
               </span>
             </Link>

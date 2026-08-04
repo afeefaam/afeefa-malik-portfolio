@@ -33,18 +33,24 @@ export function CaseStudyHero({ project }: CaseStudyHeroProps) {
         <RevealOnScroll delay={0.1} className="mt-stack-md">
           {banner.src ? (
             banner.fit === 'contain' ? (
-              <div
-                className="flex w-full items-center justify-center rounded-xl bg-sunken shadow-soft"
-                style={{ aspectRatio: '21 / 9' }}
-              >
-                <img src={banner.src} alt={banner.alt} className="h-full rounded-lg object-contain py-stack-xs" />
+              <div className="flex aspect-[3/2] w-full items-center justify-center rounded-xl bg-sunken shadow-soft sm:aspect-[21/9]">
+                <img
+                  src={banner.src}
+                  alt={banner.alt}
+                  fetchPriority="high"
+                  className="h-full rounded-lg object-contain py-stack-xs"
+                />
               </div>
             ) : (
+              // 21:9 reads as too shallow a strip on phone widths, so mobile
+              // gets a taller 3:2 crop of the same (already 21:9-cropped)
+              // source image — a real trade-off (some side content is lost
+              // to keep the center legible), not a redesign of the asset.
               <img
                 src={banner.src}
                 alt={banner.alt}
-                className="w-full rounded-xl object-cover shadow-soft"
-                style={{ aspectRatio: '21 / 9' }}
+                fetchPriority="high"
+                className="aspect-[3/2] w-full rounded-xl object-cover shadow-soft sm:aspect-[21/9]"
               />
             )
           ) : (

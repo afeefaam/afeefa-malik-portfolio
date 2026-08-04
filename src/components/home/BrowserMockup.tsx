@@ -17,7 +17,12 @@ export function BrowserMockup({ image, className = '' }: BrowserMockupProps) {
         <span className="ml-2 h-3.5 w-24 rounded-full bg-sunken" />
       </div>
       {image.src ? (
-        <img src={image.src} alt={image.alt} className="aspect-[16/10] w-full object-cover" />
+        <img
+          src={image.src}
+          alt={image.alt}
+          fetchPriority="high"
+          className="aspect-[16/10] w-full object-cover"
+        />
       ) : (
         <ImagePlaceholder alt={image.alt} tone={image.tone} radius="none" aspectRatio="16 / 10" />
       )}

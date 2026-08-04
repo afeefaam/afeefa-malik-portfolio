@@ -5,7 +5,7 @@ import { SectionHeading } from '../ui/SectionHeading'
 
 export function Contact() {
   return (
-    <section id="contact" className="py-stack-xl">
+    <section id="contact" className="scroll-mt-20 py-stack-xl">
       <Container className="relative flex flex-col items-center text-center">
         <div
           aria-hidden="true"
@@ -24,7 +24,7 @@ export function Contact() {
         <RevealOnScroll delay={0.1} className="mt-stack-md">
           <a
             href={`mailto:${person.email}`}
-            className="font-display text-display-3 text-ink transition-colors hover:text-lavender-deep"
+            className="break-words font-display text-2xl text-ink transition-colors hover:text-lavender-deep sm:text-display-3"
           >
             {person.email}
           </a>

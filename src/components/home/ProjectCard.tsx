@@ -22,6 +22,8 @@ export function ProjectCard({ project, aspectRatio = '4 / 5', className = '' }: 
           <img
             src={project.coverImage.src}
             alt={project.coverImage.alt}
+            loading="lazy"
+            decoding="async"
             className="w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
             style={{ aspectRatio }}
           />
@@ -48,8 +50,12 @@ export function ProjectCard({ project, aspectRatio = '4 / 5', className = '' }: 
           </span>
         )}
 
+        {/* Tailwind's hover: variant only fires under @media (hover: hover),
+            so on touch devices this would otherwise never appear at all —
+            shown by default below md, hover-revealed only where a mouse
+            is actually present. */}
         <span
-          className="absolute bottom-4 left-4 flex translate-y-2 items-center gap-1.5 rounded-full border border-white/50 bg-surface/70 px-4 py-2 text-xs font-medium text-ink opacity-0 shadow-soft-sm backdrop-blur-md transition-[opacity,transform] duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 motion-reduce:transition-none"
+          className="absolute bottom-4 left-4 flex items-center gap-1.5 rounded-full border border-white/50 bg-surface/70 px-4 py-2 text-xs font-medium text-ink shadow-soft-sm backdrop-blur-md transition-[opacity,transform] duration-300 ease-out motion-reduce:transition-none md:translate-y-2 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-focus-visible:translate-y-0 md:group-focus-visible:opacity-100"
           aria-hidden="true"
         >
           View case study

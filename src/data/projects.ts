@@ -17,10 +17,9 @@ import failureUi from '../assets/images/failure-ui.jpg'
 import failureUi2 from '../assets/images/failure-ui2.jpg'
 import failureFinal from '../assets/images/failure-final.jpg'
 
-// PLACEHOLDER PROJECTS — realistic example content standing in for Afeefa's
-// real case studies. Each project is a self-contained object in this array;
-// add, remove, or reorder freely. Replace copy, links, and coverImage.src
-// (currently null, which renders a soft placeholder) with real material.
+// Afeefa's real case studies. Each project is a self-contained object in
+// this array; add, remove, or reorder freely. An unset coverImage.src
+// (null) renders a soft placeholder until a real image is added.
 
 export const projects: Project[] = [
   {
@@ -81,7 +80,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'I interviewed 11 first-year and transfer students and shadowed three of them walking to a class they had never been to. The friction wasn’t reading a map. It was translating a 2D map into a decision at a real intersection or unmarked stairwell.',
+            text: 'I interviewed 11 first-year and transfer students and shadowed three of them walking to a class they had never been to. Students could read a map just fine. What tripped them up was turning it into a decision at a real intersection or an unmarked stairwell.',
           },
           {
             kind: 'list',
@@ -437,7 +436,7 @@ export const projects: Project[] = [
               },
               {
                 src: null,
-                alt: 'PLACEHOLDER — replace with a real mockup of Concert Mode',
+                alt: 'PLACEHOLDER. Replace with a real mockup of Concert Mode',
                 tone: 'neutral',
               },
             ],
@@ -510,7 +509,7 @@ export const projects: Project[] = [
           },
           {
             kind: 'paragraph',
-            text: 'This project taught me to prioritize ruthlessly and iterate in public. There’s no time to be precious about an idea when you have hours, not weeks. It also reinforced something I keep relearning: a lot of good UX work isn’t inventing new behavior, it’s reframing an existing one. In this case, turning a phone from a distraction into a tool for connection.',
+            text: 'This project taught me to prioritize ruthlessly and iterate in public. There’s no time to be precious about an idea when you have hours, not weeks. It also reminded me that a lot of good UX work comes down to reframing behavior that already exists, rather than inventing something new. Here, that meant turning a phone from a distraction into a tool for connection.',
           },
         ],
       },
@@ -592,7 +591,7 @@ export const projects: Project[] = [
         blocks: [
           {
             kind: 'paragraph',
-            text: 'The real problem wasn’t the content itself. It was that viewers had no middle ground between watching everything and watching nothing.',
+            text: 'The real problem had nothing to do with the content itself. Viewers simply had no middle ground between watching everything and watching nothing.',
           },
           {
             kind: 'paragraph',
@@ -703,7 +702,7 @@ export const projects: Project[] = [
           },
           {
             kind: 'paragraph',
-            text: 'It reinforced something I keep coming back to: good design usually isn’t about adding a rule, it’s about adding a choice.',
+            text: 'It left me with a belief about good design I still hold onto: most of the time, it has less to do with adding a rule and more to do with adding a choice.',
           },
         ],
       },
@@ -801,7 +800,7 @@ export const projects: Project[] = [
           },
           {
             kind: 'paragraph',
-            text: 'The pattern wasn’t really about the tool. It was about what the tool let students avoid.',
+            text: 'The pattern had less to do with the tool itself, and more to do with what it let students avoid.',
           },
         ],
       },
@@ -841,7 +840,7 @@ export const projects: Project[] = [
           },
           {
             kind: 'paragraph',
-            text: 'Failure Museum isn’t about celebrating failure. It’s about making the act of learning from it feel normal instead of shameful.',
+            text: 'Failure Museum doesn’t celebrate failure. It just makes learning from it feel normal instead of shameful.',
           },
         ],
       },

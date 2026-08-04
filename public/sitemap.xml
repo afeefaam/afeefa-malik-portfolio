@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Static sitemap. Case-study URLs are hand-listed from src/data/projects.ts
+  (publishedProjects) since this is a client-rendered SPA with no build-time
+  sitemap generation. Update this file when projects are added, removed, or
+  their isPublished flag changes.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://afeefaam.github.io/afeefa-malik-portfolio/</loc>
+  </url>
+  <url>
+    <loc>https://afeefaam.github.io/afeefa-malik-portfolio/work/markaz</loc>
+  </url>
+  <url>
+    <loc>https://afeefaam.github.io/afeefa-malik-portfolio/work/setlist</loc>
+  </url>
+  <url>
+    <loc>https://afeefaam.github.io/afeefa-malik-portfolio/work/close-the-curtain</loc>
+  </url>
+  <url>
+    <loc>https://afeefaam.github.io/afeefa-malik-portfolio/work/failure-museum</loc>
+  </url>
+</urlset>
