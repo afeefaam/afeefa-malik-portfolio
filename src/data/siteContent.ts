@@ -89,12 +89,12 @@ export const about = {
   bobaCaption: 'Trying yet another boba place.',
 
   rightNow: [
-    { label: 'Current obsession', value: "Whatever boba place I haven't tried yet" },
+    { label: 'Current obsession', value: 'Cute cafés with strawberry matcha 🍓🍵' },
     { label: 'Always say yes to', value: 'A hackathon, a new café, or an excuse to organize something' },
-    { label: 'Coffee chat topics', value: 'Design, hackathons, or good boba recs' },
-    { label: 'Weekend plans', value: 'Probably an event I said yes to two weeks ago' },
+    { label: 'Coffee chat topics', value: 'Design, hackathons, community building, or good boba recommendations' },
+    { label: 'Weekend plans', value: 'Probably at an event I agreed to two weeks ago' },
     { label: 'Currently learning', value: 'How to defend a design decision in a room full of engineers' },
-    { label: 'Favorite boba order', value: 'Brown sugar oat milk, less ice' },
+    { label: 'Favorite boba order', value: 'Gong Cha Mango Splash with pearls 🧋' },
   ],
 }
 

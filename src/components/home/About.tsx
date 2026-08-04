@@ -99,7 +99,7 @@ export function About() {
           {about.rightNow.map((item) => (
             <RevealGroupItem
               key={item.label}
-              className="flex flex-col gap-1 rounded-lg bg-surface p-stack-xs shadow-soft-sm"
+              className="flex min-h-28 flex-col justify-center gap-1 rounded-lg bg-surface p-stack-xs shadow-soft-sm"
             >
               <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-sage">
                 {item.label}
