@@ -4,8 +4,6 @@ import type { ProjectImage } from './projects.types'
 import karamiaPhoto from '../assets/images/karamia.jpg'
 import caseHacksPhoto from '../assets/images/casehacks.jpg'
 import bobaPhoto from '../assets/images/boba.jpg'
-import setlistCoverPhoto from '../assets/images/setlist-cover.jpg'
-import setlistUiPhoto from '../assets/images/setlist-ui.jpg'
 
 export const person = {
   name: 'Afeefa Malik',
@@ -20,29 +18,15 @@ export const portrait: ProjectImage = {
   tone: 'lavender',
 }
 
+// Shot 1 — Establishing. Static, no rotating identity list: a cycling
+// typewriter was audited out as a generic-portfolio tic that fought the
+// quieter studio pacing. Name, role, and CS background are stated once,
+// plainly, and are legible within five seconds without waiting on a loop.
 export const hero = {
   eyebrow: 'UX Designer & Computer Science Student',
-  greeting: "Hi, I'm Afeefa.",
-  // Cycled by the typewriter on the second headline line. Kept short and
-  // parallel in structure — each one stands alone as "Hi, I'm Afeefa. ___."
-  roles: [
-    'UX Designer.',
-    'Community Builder.',
-    'Computer Science Student.',
-    'Creative Problem Solver.',
-    'Always Learning.',
-  ],
+  greeting: "Hi, I'm Afeefa Malik.",
   subhead:
     "I've always loved building things. Whether it's a digital product, a community, or an event, I'm happiest creating experiences that bring people together and make life a little easier.",
-  primaryCta: { label: 'Selected work', href: '#work' },
-  secondaryCta: { label: 'About me', href: '#about' },
-}
-
-// Hero's layered device mockups. `browser` fills a landscape browser-window
-// frame, `phone` fills a portrait phone frame.
-export const heroVisual: { browser: ProjectImage; phone: ProjectImage } = {
-  browser: { src: setlistCoverPhoto, alt: 'Setlist app preview', tone: 'lavender' },
-  phone: { src: setlistUiPhoto, alt: 'Setlist app song-voting screen', tone: 'sage' },
 }
 
 // About-page photo moments — small, editorial, not full-bleed.

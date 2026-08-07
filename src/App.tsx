@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import { LenisProvider } from './components/layout/LenisProvider'
 import { ScrollToTop } from './components/layout/ScrollToTop'
 
 const HomePage = lazy(() => import('./pages/HomePage'))
@@ -8,7 +9,7 @@ const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
 function App() {
   return (
-    <>
+    <LenisProvider>
       <ScrollToTop />
       <Suspense fallback={<div className="min-h-screen bg-bg" />}>
         <Routes>
@@ -17,7 +18,7 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
-    </>
+    </LenisProvider>
   )
 }
 

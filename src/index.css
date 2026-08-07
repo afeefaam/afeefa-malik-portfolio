@@ -16,10 +16,34 @@
   font-display: swap;
 }
 
+/* Registered so the browser knows how to interpolate these as percentages —
+   without @property, a transition on a custom property snaps instead of
+   easing. Used by Hero's pointer-tracked light highlight (Shot 1). Falls
+   back gracefully (an instant snap, not a broken layout) in the small
+   minority of browsers without @property support. */
+@property --hl-x {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 32%;
+}
+
+@property --hl-y {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 78%;
+}
+
 @theme {
-  /* Color — warm, editorial neutrals. No blue, no gradients outside ImagePlaceholder. */
+  /* Color — warm, editorial neutrals. No blue, no gradients outside ImagePlaceholder.
+     --------------------------------------------------------------------------
+     Studio redesign, in progress: sage/clay/lavender below are the OLD accent
+     system (three interchangeable pastel tints) and are being retired one
+     component at a time as each "shot" gets rebuilt. They stay defined and
+     functional until every consumer has migrated — deleting them early would
+     break every section that hasn't been touched yet. Do not add new usages
+     of sage/clay/lavender; new work uses the plum/oak/walnut set below. */
   --color-bg: #FAF8F5;
-  --color-surface: #FFFFFF;
+  --color-surface: #FCFAF6;
   --color-sunken: #F1ECE3;
   --color-ink: #1F1F1F;
   --color-ink-soft: #6D6D6D;
@@ -33,6 +57,25 @@
   /* Darker than --color-lavender specifically for text/icons on the cream
      background — the light accent tone falls short of 4.5:1 AA contrast. */
   --color-lavender-deep: #746198;
+
+  /* The studio's material palette. Oak/walnut are the wood-toned neutral
+     accent (shelf, dividers) — plum is the one true pigment, used sparingly
+     as a physical mark (stamped ink, thread, a proof's edge, a pen barrel),
+     never as a decorative fill. #4C2551 is dark enough to pass AA text
+     contrast on --color-bg directly, so unlike lavender it needs no separate
+     "-deep" variant for text use. */
+  --color-oak: #9C7E56;
+  --color-oak-light: #F1E7D6;
+  --color-walnut: #5B4530;
+  --color-plum: #4C2551;
+  --color-plum-soft: #F1E9EE;
+  /* Secondary text set directly on wood/material surfaces. --color-ink-soft
+     was tuned against --color-bg and falls short of 4.5:1 on any warm
+     surface light enough to still read as wood grain (verified: even at
+     the lightest plausible oak highlight, ink-soft tops out ~4.4:1) — this
+     is that same secondary-text role, recalibrated for material instead of
+     paper. Verified 7.1:1 against --color-oak-light. */
+  --color-umber: #524A3F;
 
   /* Typography */
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -53,13 +96,24 @@
   --text-display-3--letter-spacing: -0.01em;
   --text-display-3--font-weight: 500;
 
-  /* Radius — soft, editorial rounding. No sharp corners, no tiny radii. */
+  /* Radius — soft, editorial rounding. No sharp corners, no tiny radii.
+     Still governs interface chrome (nav, buttons) that isn't standing in for
+     a physical object. */
   --radius-sm: 10px;
   --radius-md: 16px;
   --radius-lg: 24px;
   --radius-xl: 32px;
 
-  /* Shadow — subtle, ink-tinted, large-blur ambient diffusion. No hard drop shadows. */
+  /* Material radius — for objects representing real paper or wood. Real
+     paper has a trimmed edge, not an app-icon corner; a shelf plank has a
+     slight ease, not a pill. rounded-paper / rounded-wood. */
+  --radius-paper: 3px;
+  --radius-wood: 8px;
+
+  /* Shadow — subtle, ink-tinted, large-blur ambient diffusion. No hard drop
+     shadows. Semantic roles: soft-sm = resting flat on the surface,
+     soft = lifted slightly (propped, or on hover), soft-lg = the one most-
+     separated moment (a proof leaning off true). */
   --shadow-soft-sm: 0 8px 24px -8px rgba(31, 31, 31, 0.06);
   --shadow-soft: 0 20px 40px -12px rgba(31, 31, 31, 0.08);
   --shadow-soft-lg: 0 30px 60px -15px rgba(31, 31, 31, 0.1);
@@ -140,6 +194,65 @@
     .experience-grid {
       grid-template-columns: 2.5rem 1fr 10rem;
     }
+  }
+
+  /* Stamped-ink label register — eyebrows, object labels, the ledger's
+     field names. One consistent typographic voice standing in for a
+     letterpressed or stamped mark, extracted so every "shot" reads as the
+     same hand rather than each section inventing its own label style. */
+  .text-stamp {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+
+  /* The one handwritten moment in the room (the note). A CSS tilt standing
+     in for handwriting rather than a second display typeface — loading a
+     script font for one line of copy isn't worth the request. */
+  .text-hand {
+    display: inline-block;
+    font-style: italic;
+    transform: rotate(-1.5deg);
+  }
+
+  /* Restrained paper grain — an inline SVG noise filter under 1kb, no
+     network request. Reserved for objects that are actually paper (a
+     proof, a booklet, the ledger, the note); never applied globally. Not
+     yet used by Shot 1, which has no paper object in frame. */
+  .texture-paper {
+    position: relative;
+  }
+
+  .texture-paper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 120px 120px;
+  }
+
+  /* Wood grain — anisotropic turbulence (low frequency along the grain,
+     higher across it), unlike .texture-paper's uniform noise. A repeating
+     mechanical hatch pattern reads as CSS; elongated, irregular streaks
+     read as material. Reserved for wood surfaces (Shot 1's worktable,
+     eventually the shelf). */
+  .texture-wood {
+    position: relative;
+  }
+
+  .texture-wood::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.35' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+    background-size: 400px 400px;
   }
 }
 

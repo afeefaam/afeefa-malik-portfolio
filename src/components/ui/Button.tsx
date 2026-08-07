@@ -1,19 +1,23 @@
 import type { ButtonHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
 import { Link, type LinkProps } from 'react-router-dom'
+import { cva, type VariantProps } from 'class-variance-authority'
+import { cn } from '../../lib/cn'
 
-type Variant = 'primary' | 'secondary' | 'ghost'
+const buttonStyles = cva(
+  'inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all duration-300 motion-reduce:transition-none active:scale-[0.97]',
+  {
+    variants: {
+      variant: {
+        primary: 'bg-ink text-bg hover:opacity-90 shadow-soft-sm',
+        secondary: 'bg-lavender-soft text-ink hover:bg-clay-soft',
+        ghost: 'bg-transparent text-ink border border-border hover:border-ink',
+      },
+    },
+    defaultVariants: { variant: 'primary' },
+  },
+)
 
-const VARIANT_STYLES: Record<Variant, string> = {
-  primary:
-    'bg-ink text-bg hover:opacity-90 shadow-soft-sm',
-  secondary:
-    'bg-lavender-soft text-ink hover:bg-clay-soft',
-  ghost:
-    'bg-transparent text-ink border border-border hover:border-ink',
-}
-
-const BASE_STYLES =
-  'inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all duration-300 motion-reduce:transition-none active:scale-[0.97]'
+type Variant = NonNullable<VariantProps<typeof buttonStyles>['variant']>
 
 interface CommonProps {
   children: ReactNode
@@ -38,7 +42,7 @@ type ButtonProps = ButtonAsLink | ButtonAsAnchor | ButtonAsButton
 /** Polymorphic button — renders a router Link, an external anchor, or a native button. */
 export function Button(props: ButtonProps) {
   const { children, variant = 'primary', className = '', icon, ...rest } = props
-  const classes = `${BASE_STYLES} ${VARIANT_STYLES[variant]} ${className}`
+  const classes = cn(buttonStyles({ variant }), className)
 
   if ('to' in props && props.to) {
     const { to, ...linkRest } = rest as Omit<ButtonAsLink, keyof CommonProps>
