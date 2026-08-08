@@ -169,33 +169,7 @@
   }
 }
 
-/* One shared layout primitive for each Experience entry, reused instead of
-   duplicating mobile/desktop markup. Mobile stacks in reading order (number,
-   role, org, date, description); the desktop 3-column grid only exists at
-   sm+, with the date in its own fixed track so it can't drift per entry. */
 @layer components {
-  .experience-grid {
-    display: grid;
-    grid-template-areas: "number" "role" "org" "date" "description";
-  }
-
-  @media (min-width: 640px) {
-    .experience-grid {
-      grid-template-columns: 2.5rem 1fr 8rem;
-      grid-template-areas:
-        "number role  date"
-        ".      org   ."
-        ".      description description";
-      align-items: baseline;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .experience-grid {
-      grid-template-columns: 2.5rem 1fr 10rem;
-    }
-  }
-
   /* Stamped-ink label register — eyebrows, object labels, the ledger's
      field names. One consistent typographic voice standing in for a
      letterpressed or stamped mark, extracted so every "shot" reads as the

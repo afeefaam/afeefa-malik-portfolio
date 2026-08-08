@@ -1,6 +1,6 @@
 import { About } from '../components/home/About'
 import { Contact } from '../components/home/Contact'
-import { Experience } from '../components/home/Experience'
+import { ExperienceLedger } from '../components/home/ExperienceLedger'
 import { Footer } from '../components/layout/Footer'
 import { Hero } from '../components/home/Hero'
 import { ProjectArchive } from '../components/home/ProjectArchive'
@@ -16,8 +16,8 @@ export default function HomePage() {
       <main className="bg-bg pt-20">
         <Hero />
         <ProjectArchive />
+        <ExperienceLedger />
         <About />
-        <Experience />
         <Contact />
       </main>
       <Footer />
