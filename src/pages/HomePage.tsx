@@ -1,4 +1,4 @@
-import { Contact } from '../components/home/Contact'
+import { ClosingNote } from '../components/home/ClosingNote'
 import { ExperienceLedger } from '../components/home/ExperienceLedger'
 import { Footer } from '../components/layout/Footer'
 import { Hero } from '../components/home/Hero'
@@ -18,7 +18,7 @@ export default function HomePage() {
         <ProjectArchive />
         <ExperienceLedger />
         <StudioCorner />
-        <Contact />
+        <ClosingNote />
       </main>
       <Footer />
     </>
