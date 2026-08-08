@@ -19,6 +19,7 @@ const consoleErrors = []
 
 for (const [label, viewport] of [
   ['desktop-1440', { width: 1440, height: 900 }],
+  ['tablet-1024', { width: 1024, height: 900 }],
   ['mobile-390', { width: 390, height: 844 }],
 ]) {
   const page = await browser.newPage({ viewport })
