@@ -7,13 +7,15 @@ interface ContentBlockRendererProps {
 export function ContentBlockRenderer({ block }: ContentBlockRendererProps) {
   switch (block.kind) {
     case 'paragraph':
-      return <p className="max-w-2xl text-lg text-ink-soft">{block.text}</p>
+      return <p className="max-w-2xl text-[1.0625rem] leading-relaxed text-graphite">{block.text}</p>
 
     case 'heading': {
       // Section headings are already h2, so nested content headings default
-      // to h3 to keep a sane heading hierarchy; level: 2 opts back in.
+      // to h3 to keep a sane heading hierarchy; level: 2 opts back in. These
+      // are the "small bold subheadings" for individual design decisions —
+      // dark, not pink, so the pink stays reserved for section titles.
       const Heading = block.level === 2 ? 'h2' : 'h3'
-      return <Heading className="font-display text-xl text-ink">{block.text}</Heading>
+      return <Heading className="font-display text-lg font-semibold text-graphite">{block.text}</Heading>
     }
 
     case 'image': {
@@ -32,10 +34,10 @@ export function ContentBlockRenderer({ block }: ContentBlockRendererProps) {
             alt={block.image.alt}
             loading="lazy"
             decoding="async"
-            className="w-full rounded-xl object-cover"
+            className="w-full rounded-2xl object-cover"
           />
           {block.caption && (
-            <figcaption className="mt-2 text-sm text-ink-soft">{block.caption}</figcaption>
+            <figcaption className="mt-2 text-sm text-graphite-soft">{block.caption}</figcaption>
           )}
         </figure>
       )
@@ -47,7 +49,7 @@ export function ContentBlockRenderer({ block }: ContentBlockRendererProps) {
       if (images.length === 0) return null
 
       return (
-        <div className="grid grid-cols-1 gap-stack-sm sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {images.map((image) => (
             <img
               key={image.alt}
@@ -55,7 +57,7 @@ export function ContentBlockRenderer({ block }: ContentBlockRendererProps) {
               alt={image.alt}
               loading="lazy"
               decoding="async"
-              className="w-full rounded-lg object-cover"
+              className="w-full rounded-2xl object-cover"
               style={{ aspectRatio: gridRatio }}
             />
           ))}
@@ -65,11 +67,11 @@ export function ContentBlockRenderer({ block }: ContentBlockRendererProps) {
 
     case 'statGrid':
       return (
-        <div className="grid grid-cols-1 gap-stack-sm sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {block.stats.map((stat) => (
             <div key={stat.label} className="flex flex-col gap-1">
-              <span className="font-display text-display-3 text-sage">{stat.value}</span>
-              <span className="text-sm text-ink-soft">{stat.label}</span>
+              <span className="font-display text-[2rem] font-semibold text-blush-500">{stat.value}</span>
+              <span className="text-sm text-graphite-soft">{stat.label}</span>
             </div>
           ))}
         </div>
@@ -79,14 +81,14 @@ export function ContentBlockRenderer({ block }: ContentBlockRendererProps) {
       // Deliberately breaks the standard paragraph column width — a pull
       // quote should read as a pause in the story, not another text block.
       return (
-        <blockquote className="max-w-3xl py-stack-xs">
-          <span aria-hidden="true" className="font-display text-5xl leading-none text-lavender">
+        <blockquote className="max-w-3xl py-2">
+          <span aria-hidden="true" className="font-display text-5xl leading-none text-blush-300">
             “
           </span>
-          <p className="font-display text-display-3 text-ink">{block.text}</p>
+          <p className="font-display text-2xl font-semibold text-blush-500">{block.text}</p>
           {block.attribution && (
-            <cite className="mt-stack-xs flex items-center gap-2 text-sm not-italic text-ink-soft">
-              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-sage" />
+            <cite className="mt-3 flex items-center gap-2 text-sm not-italic text-graphite-soft">
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-blush-400" />
               {block.attribution}
             </cite>
           )}
@@ -107,7 +109,7 @@ export function ContentBlockRenderer({ block }: ContentBlockRendererProps) {
       ).filter((side) => side.image.src)
 
       return (
-        <div className="grid grid-cols-1 gap-stack-sm sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {sides.map(({ image, label }) => (
             <div key={label} className="relative">
               <img
@@ -115,10 +117,10 @@ export function ContentBlockRenderer({ block }: ContentBlockRendererProps) {
                 alt={image.alt}
                 loading="lazy"
                 decoding="async"
-                className="w-full rounded-xl object-cover"
+                className="w-full rounded-2xl object-cover"
                 style={{ aspectRatio: '4 / 3' }}
               />
-              <span className="absolute left-3 top-3 rounded-full border border-white/50 bg-surface/70 px-3 py-1 text-xs font-medium text-ink shadow-soft-sm backdrop-blur-md">
+              <span className="absolute left-3 top-3 rounded-full border border-blush-200 bg-card/90 px-3 py-1 text-xs font-medium text-graphite shadow-soft-sm backdrop-blur-md">
                 {label}
               </span>
             </div>
@@ -131,8 +133,8 @@ export function ContentBlockRenderer({ block }: ContentBlockRendererProps) {
       return (
         <ul className="flex max-w-2xl flex-col gap-2">
           {block.items.map((item) => (
-            <li key={item} className="flex gap-2.5 text-lg text-ink-soft">
-              <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sage" />
+            <li key={item} className="flex gap-2.5 text-[1.0625rem] leading-relaxed text-graphite">
+              <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blush-400" />
               {item}
             </li>
           ))}

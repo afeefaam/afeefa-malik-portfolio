@@ -135,6 +135,56 @@
 
   /* Calm, premium easing used for every transition/animation in the app */
   --ease-editorial: cubic-bezier(0.2, 0, 0, 1);
+
+  /* ──────────────────────────────────────────────────────────────────────
+     portfolio-v2 homepage — dusty pink / blue / gray system.
+     Added alongside (not replacing) the editorial tokens above so the
+     case-study pages keep rendering. The homepage components use only
+     the tokens in this block.
+
+     One dusty-rose family carries every heading, button, border, rail and
+     decorative accent. `blush-500` is the single "ink pink"; the bright
+     magenta folder pink from the reference is pulled into the same family
+     as `folder`. Body copy is graphite — dark enough for AA on white. */
+  --color-page-top: #F6EEEE;
+  --color-page-mid: #E9CACA;
+  --color-page-bottom: #D98585;
+  --color-card: #FFFFFF;
+
+  --color-blush-50: #FBF2F1;
+  --color-blush-100: #F4E0DE;
+  --color-blush-200: #E9C7C3;   /* hairlines, borders, timeline track */
+  --color-blush-300: #DBA6A2;
+  --color-blush-400: #CF8985;   /* nav bar, decorative fills */
+  --color-blush-500: #C77974;   /* headings, buttons, links, accents */
+  --color-blush-600: #AC605B;   /* hover / pressed */
+
+  --color-folder: #D07E92;      /* file-folder icons — dusty rose, same family */
+  --color-folder-tab: #BF6E82;
+  --color-folder-label: #B06A7B;
+
+  --color-dusty-blue: #8FAFBF;  /* intro display name */
+  --color-dusty-blue-deep: #6E93A4;
+
+  --color-navy: #16233F;        /* Heuristic Evaluation placeholder card */
+
+  --color-graphite: #3E3E3E;    /* body copy */
+  --color-graphite-soft: #6B6B6B;
+
+  --radius-card: 32px;
+  --radius-panel: 16px;
+
+  /* Total vertical footprint of the sticky navbar in its *compact* pill
+     state at sm+ — 64px pill + 16px top padding + 16px bottom padding. Every
+     scroll-margin/sticky-offset that needs to clear the nav uses this,
+     because by the time a reader reaches any anchor-scrolled section (case
+     studies are compact from the start; homepage sections all sit well
+     below the hero) the navbar has already condensed into the compact
+     state — the larger, hero-integrated default state is never what's
+     actually on screen at those scroll positions. Below `sm` the compact
+     header is shorter (56px pill + 12px + 12px = 80px) but nothing
+     sticky-sensitive is active at that width yet, so one value is enough. */
+  --nav-height: 96px;
 }
 
 @layer base {
@@ -144,7 +194,6 @@
 
   html {
     scroll-behavior: auto; /* smooth scroll is handled in JS so it can respect prefers-reduced-motion */
-    overflow-x: hidden;
   }
 
   /* Several decorative glow/blur elements (Hero, About, Contact) are
@@ -152,7 +201,11 @@
      edge — correct at rest, but on narrow viewports that bleed can add to
      the page's own scrollable width. Clipping at the root (not on each
      glow individually) stops that without touching the vertical scroll
-     container, so position: sticky elsewhere is unaffected. */
+     container. This lives on `body` only, never also on `html` — Chromium
+     was found (via the case-study sticky sidebar) to break every
+     `position: sticky` descendant on the page when `overflow-x: hidden` is
+     set on *both* `html` and `body` at once. `body` alone still clips the
+     bleed just as effectively. */
   body {
     overflow-x: hidden;
     background-color: var(--color-bg);
@@ -188,6 +241,21 @@
     display: inline-block;
     font-style: italic;
     transform: rotate(-1.5deg);
+  }
+
+  /* Intro hero grid — mobile stacks name graphic → polaroid → paragraph in
+     document order; desktop pairs the name graphic and paragraph into one
+     column against the polaroid, which spans both rows so it sits level
+     with the name graphic instead of the paragraph beneath it. */
+  .hero-grid {
+    grid-template-areas: "name" "photo" "text";
+  }
+
+  @media (min-width: 1024px) {
+    .hero-grid {
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-areas: "name photo" "text photo";
+    }
   }
 
   /* Restrained paper grain — an inline SVG noise filter under 1kb, no

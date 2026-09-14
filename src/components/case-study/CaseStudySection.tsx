@@ -1,3 +1,4 @@
+import { cn } from '../../lib/cn'
 import type { CaseStudySection as CaseStudySectionType } from '../../data/projects.types'
 import { RevealOnScroll } from '../motion/RevealOnScroll'
 import { ContentBlockRenderer } from './ContentBlockRenderer'
@@ -7,30 +8,32 @@ interface CaseStudySectionProps {
   index: number
 }
 
-// Insights and Reflection are the story's "pause and consider" beats —
-// giving them a quiet highlighted card breaks the otherwise identical
-// heading/paragraph rhythm every other section shares.
-const HIGHLIGHTED_TYPES = new Set(['insights', 'reflection'])
+// Reflection is the story's closing beat — a filled blush card with
+// contrasting white text, distinct from every other section's plain
+// heading-and-paragraph rhythm, matching the reference.
+const HIGHLIGHTED_TYPES = new Set(['reflection'])
 
-export function CaseStudySection({ section, index }: CaseStudySectionProps) {
+export function CaseStudySection({ section }: CaseStudySectionProps) {
   const isHighlighted = HIGHLIGHTED_TYPES.has(section.type)
 
   return (
-    <section id={section.type} className="scroll-mt-28 py-stack-md">
+    <section id={section.type} className="scroll-mt-[calc(var(--nav-height)+24px)] py-8 sm:py-10">
       <RevealOnScroll
-        className={
-          isHighlighted
-            ? 'flex flex-col gap-stack-sm rounded-lg bg-sunken p-stack-sm'
-            : 'flex flex-col gap-stack-sm'
-        }
+        className={cn(
+          'flex flex-col gap-4',
+          isHighlighted &&
+            'rounded-2xl bg-blush-500 p-6 text-white shadow-soft sm:p-10 [&_h3]:text-white [&_li]:text-white/90 [&_p]:text-white/90',
+        )}
       >
-        <div className="flex items-baseline gap-3">
-          <span className="font-display text-sm text-lavender-deep">
-            {String(index + 1).padStart(2, '0')}
-          </span>
-          <h2 className="font-display text-display-3 text-ink">{section.heading}</h2>
-        </div>
-        <div className="flex flex-col gap-stack-sm">
+        <h2
+          className={cn(
+            'font-display text-[1.75rem] font-semibold sm:text-[2.25rem]',
+            isHighlighted ? 'text-white' : 'text-blush-500',
+          )}
+        >
+          {section.heading}
+        </h2>
+        <div className="flex flex-col gap-4">
           {section.blocks.map((block, blockIndex) => (
             <ContentBlockRenderer key={blockIndex} block={block} />
           ))}

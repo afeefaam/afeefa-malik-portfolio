@@ -1,13 +1,18 @@
 import type { Project } from '../../data/projects.types'
+import { Bounded } from '../home/Bounded'
 import { RevealOnScroll } from '../motion/RevealOnScroll'
-import { Container } from '../ui/Container'
 import { ImagePlaceholder } from '../ui/ImagePlaceholder'
-import { Tag } from '../ui/Tag'
 
 interface CaseStudyHeroProps {
   project: Project
 }
 
+/**
+ * Case study hero — large title, a one-line description, and a large hero
+ * image directly below, matching the reference. Kept in the same blush/
+ * graphite language as the rest of the site instead of the old editorial
+ * ink/sage palette.
+ */
 export function CaseStudyHero({ project }: CaseStudyHeroProps) {
   // Deliberately not falling back to coverImage.src here — the homepage
   // card crop and the case study's wide (21:9) banner are rarely the same
@@ -15,30 +20,34 @@ export function CaseStudyHero({ project }: CaseStudyHeroProps) {
   const banner = project.heroImage ?? { ...project.coverImage, src: null }
 
   return (
-    <header className="pt-stack-lg pb-stack-lg">
-      <Container>
-        <RevealOnScroll className="flex max-w-3xl flex-col gap-stack-xs">
-          <div className="flex flex-wrap items-center gap-2">
-            {project.tags.map((tag) => (
-              <Tag key={tag}>{tag}</Tag>
+    <header className="pt-10 pb-8 sm:pt-14 sm:pb-10">
+      <Bounded>
+        <RevealOnScroll className="flex max-w-3xl flex-col gap-3">
+          <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-sm text-graphite-soft">
+            {project.tags.map((tag, i) => (
+              <span key={tag}>
+                {tag}
+                {i < project.tags.length - 1 && <span className="ml-2.5 text-blush-300">·</span>}
+              </span>
             ))}
-            <span className="text-sm text-ink-soft">{project.year}</span>
+            <span className="text-blush-300">·</span>
+            <span>{project.year}</span>
           </div>
-          <h1 className="font-display text-display-2 text-ink md:text-display-1">
+          <h1 className="font-display text-[2.75rem] font-semibold leading-[1.05] text-blush-500 sm:text-[3.5rem]">
             {project.title}
           </h1>
-          <p className="text-lg text-ink-soft">{project.tagline}</p>
+          <p className="text-lg text-graphite">{project.tagline}</p>
         </RevealOnScroll>
 
-        <RevealOnScroll delay={0.1} className="mt-stack-md">
+        <RevealOnScroll delay={0.1} className="mt-8 sm:mt-10">
           {banner.src ? (
             banner.fit === 'contain' ? (
-              <div className="flex aspect-[3/2] w-full items-center justify-center rounded-xl bg-sunken shadow-soft sm:aspect-[21/9]">
+              <div className="flex aspect-[3/2] w-full items-center justify-center rounded-2xl bg-blush-50 shadow-soft sm:aspect-[21/9]">
                 <img
                   src={banner.src}
                   alt={banner.alt}
                   fetchPriority="high"
-                  className="h-full rounded-lg object-contain py-stack-xs"
+                  className="h-full rounded-xl object-contain py-4"
                 />
               </div>
             ) : (
@@ -50,7 +59,7 @@ export function CaseStudyHero({ project }: CaseStudyHeroProps) {
                 src={banner.src}
                 alt={banner.alt}
                 fetchPriority="high"
-                className="aspect-[3/2] w-full rounded-xl object-cover shadow-soft sm:aspect-[21/9]"
+                className="aspect-[3/2] w-full rounded-2xl object-cover shadow-soft sm:aspect-[21/9]"
               />
             )
           ) : (
@@ -63,7 +72,7 @@ export function CaseStudyHero({ project }: CaseStudyHeroProps) {
             />
           )}
         </RevealOnScroll>
-      </Container>
+      </Bounded>
     </header>
   )
 }

@@ -1,13 +1,15 @@
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import { BackToTopButton } from '../components/case-study/BackToTopButton'
 import { CaseStudyHero } from '../components/case-study/CaseStudyHero'
 import { CaseStudyMeta } from '../components/case-study/CaseStudyMeta'
 import { CaseStudySection } from '../components/case-study/CaseStudySection'
 import { CaseStudySectionNav } from '../components/case-study/CaseStudySectionNav'
 import { ConfidentialNotice } from '../components/case-study/ConfidentialNotice'
-import { Footer } from '../components/layout/Footer'
-import { Nav } from '../components/layout/Nav'
-import { Container } from '../components/ui/Container'
+import { Bounded } from '../components/home/Bounded'
+import { HomeFooter } from '../components/home/HomeFooter'
+import { HomeNav } from '../components/home/HomeNav'
+import { PageFrame } from '../components/layout/PageFrame'
 import { getProjectBySlug, publishedProjects } from '../data/projects'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import NotFoundPage from './NotFoundPage'
@@ -36,60 +38,72 @@ function CaseStudyContent({ project }: { project: NonNullable<ReturnType<typeof 
       : publishedProjects[(currentIndex + 1) % publishedProjects.length]
 
   return (
-    <>
-      <Nav />
-      <main className="bg-bg pt-20">
+    <PageFrame>
+      <HomeNav />
+      <main>
         <CaseStudyHero project={project} />
 
         {project.isConfidential ? (
           <>
-            <Container>
-              <div className="max-w-sm pb-stack-md">
+            <Bounded>
+              <div className="max-w-sm pb-8">
                 <CaseStudyMeta meta={project.meta} links={project.links} award={project.award} />
               </div>
-            </Container>
+            </Bounded>
             <ConfidentialNotice note={project.confidentialNote} />
           </>
         ) : (
-          <Container className="pb-stack-lg">
+          <Bounded className="pb-16 sm:pb-20">
             {/* Sidebar only at lg+ (1024px) — at tablet widths (768-1023px)
                 a 3/8-column split leaves too little room for either side,
                 so tablet gets the same full-width single column as mobile,
                 just with more breathing room. */}
-            <div className="grid grid-cols-1 gap-stack-lg lg:grid-cols-12">
-              <aside className="lg:col-span-3">
-                <div className="flex flex-col gap-stack-sm lg:sticky lg:top-28">
-                  <CaseStudyMeta meta={project.meta} links={project.links} award={project.award} />
+            <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-10">
+              {/* `aside` (not a nested wrapper div) is the flex container
+                  here on purpose: it's the grid item that stretches to the
+                  full row height, so the sticky nav's containing block has
+                  room to actually stick for the whole scroll range instead
+                  of being boxed into a div that shrink-wraps its content. */}
+              <aside className="flex flex-col gap-4 lg:col-span-4">
+                {/* Project details stay in normal document flow — only the
+                    "On this page" nav below should follow the reader. Its
+                    sticky offset clears the sticky main navbar (z-50) plus
+                    24px of breathing room, and it sits at a lower z-index
+                    (10) so it can never render above the navbar if their
+                    edges ever touch mid-scroll. */}
+                <CaseStudyMeta meta={project.meta} links={project.links} award={project.award} />
+                <div className="lg:sticky lg:top-[calc(var(--nav-height)+24px)] lg:z-10">
                   <CaseStudySectionNav sections={project.sections} />
                 </div>
               </aside>
 
-              <div className="lg:col-span-8 lg:col-start-5">
+              <div className="lg:col-span-8">
                 {project.sections.map((section, index) => (
                   <CaseStudySection key={section.type} section={section} index={index} />
                 ))}
               </div>
             </div>
-          </Container>
+          </Bounded>
         )}
 
-        <section className="border-t border-border py-stack-md">
-          <Container>
-            <Link
-              to={`/work/${nextProject.slug}`}
-              className="group flex flex-col gap-1.5"
-            >
-              <span className="text-xs font-semibold uppercase tracking-[0.14em] text-sage">
+        <section className="border-t border-blush-200 py-10">
+          <Bounded>
+            <Link to={`/work/${nextProject.slug}`} className="group flex flex-col gap-1.5">
+              <span className="text-xs font-semibold uppercase tracking-[0.14em] text-blush-300">
                 Next project
               </span>
-              <span className="font-display text-display-3 text-ink transition-colors group-hover:text-lavender-deep">
-                {nextProject.title} →
+              <span className="flex items-center gap-3 font-display text-2xl font-semibold text-blush-500 transition-colors group-hover:text-blush-600 sm:text-[2rem]">
+                {nextProject.title}
+                <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+                  →
+                </span>
               </span>
             </Link>
-          </Container>
+          </Bounded>
         </section>
       </main>
-      <Footer />
-    </>
+      <HomeFooter />
+      <BackToTopButton />
+    </PageFrame>
   )
 }

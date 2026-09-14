@@ -1,26 +1,38 @@
-import { ClosingNote } from '../components/home/ClosingNote'
-import { ExperienceLedger } from '../components/home/ExperienceLedger'
-import { Footer } from '../components/layout/Footer'
+import { AboutMe } from '../components/home/AboutMe'
+import { Capabilities } from '../components/home/Capabilities'
+import { CaseStudies } from '../components/home/CaseStudies'
+import { Contact } from '../components/home/Contact'
+import { ExperienceTimeline } from '../components/home/ExperienceTimeline'
 import { Hero } from '../components/home/Hero'
-import { ProjectArchive } from '../components/home/ProjectArchive'
-import { StudioCorner } from '../components/home/StudioCorner'
-import { Nav } from '../components/layout/Nav'
+import { HomeFooter } from '../components/home/HomeFooter'
+import { HomeNav } from '../components/home/HomeNav'
+import { Intro } from '../components/home/Intro'
+import { PageFrame } from '../components/layout/PageFrame'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useScrollToHash } from '../hooks/useScrollToHash'
 
+/**
+ * Homepage (portfolio-v2) — the framed layout from the design reference: a
+ * dusty-pink gradient page holding one white rounded card that runs from
+ * the rose nav bar through to the footer.
+ */
 export default function HomePage() {
+  useDocumentTitle('Afeefa Malik — UX Designer & Computer Science Student')
   useScrollToHash()
 
   return (
-    <>
-      <Nav />
-      <main className="bg-bg pt-20">
+    <PageFrame>
+      <HomeNav />
+      <main>
         <Hero />
-        <ProjectArchive />
-        <ExperienceLedger />
-        <StudioCorner />
-        <ClosingNote />
+        <Intro />
+        <Capabilities />
+        <CaseStudies />
+        <ExperienceTimeline />
+        <AboutMe />
+        <Contact />
       </main>
-      <Footer />
-    </>
+      <HomeFooter />
+    </PageFrame>
   )
 }

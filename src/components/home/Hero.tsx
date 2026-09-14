@@ -1,137 +1,64 @@
-import { Link } from 'react-router-dom'
-import { motion, useMotionValue, useSpring, useTransform } from 'motion/react'
-import { hero } from '../../data/siteContent'
-import { getProjectBySlug } from '../../data/projects'
-import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion'
-import { Container } from '../ui/Container'
-import { getRevealAnimation, springs } from '../motion/presets'
-import { fadeIn } from '../motion/variants'
-
-const MotionLink = motion.create(Link)
-
-const featured = getProjectBySlug('setlist')!
-const TILT_DEGREES = 4
-const FOCUS_TILT = 0.32 // fixed pointer-equivalent position for keyboard focus
+import { useEffect, useRef } from 'react'
+import { hero, person } from '../../data/siteContent'
+import heroLoop from '../../assets/images/video-loop-new-updated.mp4'
 
 /**
- * Shot 1 — not a hero, the first artifact discovered. A large printed
- * proof of the featured project rests on the worktable, off-true and
- * shadowed like something actually set down; identity sits beside it as a
- * compact nameplate, not a separate hero column. The wood is context, not
- * the subject — its lighting is one static north-light pool, no pointer
- * tracking. The one interaction belongs to the proof: it tilts a few
- * degrees toward the pointer (or settles into a fixed tilt on keyboard
- * focus) and its shadow deepens, like picking a print up to catch the
- * light, before Enter/Space/click opens the case study.
+ * Hero — a looping video, fully designed and exported from Canva. This
+ * "updated" cut has its own name/title text baked into the footage, so —
+ * same rule as the original video hero — nothing is layered on top of it:
+ * no overlay, no filter, no color adjustment, no HTML text. (An earlier
+ * revision of this component drew "Afeefa Malik" / the eyebrow line over
+ * the video in HTML for a text-less cut; that's removed here since it would
+ * now double up with the video's own baked-in text.)
+ *
+ * The name/title text lives in the video pixels, so it's invisible to
+ * screen readers and search engines — this sr-only h1 restores that
+ * without putting anything back on screen.
+ *
+ * `<source type="video/mp4">` (rather than a bare `src`) and a manual
+ * `.play()` call on mount are both belt-and-suspenders: autoplay already
+ * works from the `autoPlay`/`muted`/`playsInline` attributes alone in every
+ * evergreen browser, but the explicit MIME type and the fallback play()
+ * call (its promise deliberately ignored — this only matters on browsers
+ * stingy enough to need it, and there's nothing useful to do if it rejects)
+ * cost nothing and remove any doubt about it actually running.
+ *
+ * `object-left` (not the cover default of centered): the baked-in text
+ * sits near the left edge of the source frame, and on narrower viewports
+ * this section is proportionally taller than the video (cover crops the
+ * sides, not top/bottom, at those widths) — a centered crop cuts straight
+ * through the text. Anchoring left keeps it fully in frame and only trims
+ * empty background off the right instead. Desktop's wider aspect crops
+ * top/bottom either way, so this doesn't change that framing.
  */
 export function Hero() {
-  const reducedMotion = usePrefersReducedMotion()
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    videoRef.current?.play().catch(() => {})
+  }, [])
 
   return (
-    <section className="relative flex min-h-[calc(100svh-5rem)] items-start overflow-hidden py-stack-sm xl:items-center xl:py-stack-lg">
-      <div
-        aria-hidden="true"
-        className="texture-wood absolute inset-0"
-        style={{
-          backgroundColor: 'var(--color-oak)',
-          backgroundImage:
-            // Static ambient pool — the only thing identity-text contrast
-            // relies on (verified: umber 5.0:1 / ink 9.5:1 against it).
-            // Fixed, no pointer tracking: the light here is context, not
-            // the interaction — that belongs to the proof now.
-            'radial-gradient(52% 60% at 20% 48%, rgba(241,231,214,0.65) 0%, rgba(241,231,214,0) 100%), ' +
-            'radial-gradient(60% 55% at 90% 10%, rgba(91,69,48,0.22) 0%, rgba(91,69,48,0) 100%)',
-        }}
-      />
-
-      <Container className="relative flex flex-col items-start gap-stack-xs xl:flex-row xl:items-center xl:gap-4">
-        <motion.div
-          className="relative z-10 flex max-w-sm shrink-0 flex-col gap-1 xl:w-[28%] xl:gap-stack-xs"
-          {...getRevealAnimation(reducedMotion, fadeIn)}
-        >
-          <h1 className="font-display text-display-3 leading-[1.05] text-ink [text-shadow:0_1px_2px_rgba(31,31,31,0.12)]">
-            {hero.greeting}
-          </h1>
-          <p className="text-stamp text-umber [text-shadow:0_1px_1px_rgba(241,231,214,0.4)]">
-            {hero.eyebrow}
-          </p>
-          <p className="hidden max-w-xs text-base text-umber xl:block">{hero.subhead}</p>
-        </motion.div>
-
-        <ProofArtifact reducedMotion={reducedMotion} />
-      </Container>
-    </section>
-  )
-}
-
-function ProofArtifact({ reducedMotion }: { reducedMotion: boolean }) {
-  const px = useMotionValue(0.5)
-  const py = useMotionValue(0.5)
-  const rotateX = useSpring(useTransform(py, [0, 1], [TILT_DEGREES, -TILT_DEGREES]), springs.gentle)
-  const rotateY = useSpring(useTransform(px, [0, 1], [-TILT_DEGREES, TILT_DEGREES]), springs.gentle)
-
-  function handlePointerMove(event: React.PointerEvent<HTMLAnchorElement>) {
-    if (reducedMotion || event.pointerType !== 'mouse') return
-    const rect = event.currentTarget.getBoundingClientRect()
-    px.set((event.clientX - rect.left) / rect.width)
-    py.set((event.clientY - rect.top) / rect.height)
-  }
-
-  function reset() {
-    px.set(0.5)
-    py.set(0.5)
-  }
-
-  function focusTilt() {
-    if (reducedMotion) return
-    px.set(FOCUS_TILT)
-    py.set(FOCUS_TILT)
-  }
-
-  return (
-    <MotionLink
-      to={`/work/${featured.slug}`}
-      aria-label={`Open the ${featured.title} case study`}
-      className="group -rotate-1 block w-full xl:absolute xl:right-0 xl:top-1/2 xl:w-[66vw] xl:max-w-[960px] xl:-translate-y-1/2"
-      onPointerMove={handlePointerMove}
-      onPointerLeave={reset}
-      onFocus={focusTilt}
-      onBlur={reset}
-      {...getRevealAnimation(reducedMotion, fadeIn)}
+    <section
+      id="hero"
+      aria-label="Intro"
+      className="relative h-[280px] overflow-hidden sm:h-[340px] lg:h-[420px]"
     >
-      <motion.div
-        className={
-          'texture-paper rounded-paper bg-surface transition-shadow duration-300 ' +
-          'shadow-[0_1px_0_0_rgba(0,0,0,0.05),3px_4px_0_0_rgba(0,0,0,0.1),var(--shadow-soft)] ' +
-          'group-hover:shadow-[0_1px_0_0_rgba(0,0,0,0.05),3px_4px_0_0_rgba(0,0,0,0.1),var(--shadow-soft-lg)] ' +
-          'group-focus-visible:shadow-[0_1px_0_0_rgba(0,0,0,0.05),3px_4px_0_0_rgba(0,0,0,0.1),var(--shadow-soft-lg)]'
-        }
-        style={
-          reducedMotion
-            ? undefined
-            : {
-                rotateX,
-                rotateY,
-                transformPerspective: 1200,
-                // Pivoting from center let the edge flush with the viewport
-                // swing past it on tilt, clipping the caption. Anchoring the
-                // pivot to that same edge keeps it fixed in place — all the
-                // visible movement happens on the left, where there's room.
-                transformOrigin: 'right center',
-              }
-        }
+      <h1 className="sr-only">
+        {person.name} — {hero.eyebrow}
+      </h1>
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        aria-hidden="true"
+        className="h-full w-full object-cover object-left"
       >
-        <img
-          src={featured.coverImage.src ?? undefined}
-          alt={featured.coverImage.alt}
-          className="rounded-t-paper max-h-[40svh] w-full object-cover xl:max-h-none"
-        />
-        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 px-5 py-4">
-          <span className="font-display text-lg text-ink">{featured.title}</span>
-          {featured.award && <span className="text-stamp text-umber">{featured.award}</span>}
-          <p className="w-full text-sm text-ink-soft">{featured.tagline}</p>
-        </div>
-      </motion.div>
-    </MotionLink>
+        <source src={heroLoop} type="video/mp4" />
+      </video>
+    </section>
   )
 }

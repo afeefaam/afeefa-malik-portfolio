@@ -380,22 +380,8 @@ export const projects: Project[] = [
         ],
       },
       {
-        type: 'behindTheDesign',
-        heading: 'My Role',
-        blocks: [
-          {
-            kind: 'paragraph',
-            text: 'I worked as part of a three-person team with Victoria Leliveld and Amrit Nannar, across research, ideation, interaction design, and the final high-fidelity screens.',
-          },
-          {
-            kind: 'paragraph',
-            text: 'A 24-hour sprint doesn’t leave room for precious decision-making. We had to choose a direction fast, commit to it, and keep refining instead of restarting.',
-          },
-        ],
-      },
-      {
         type: 'research',
-        heading: 'Research & Insights',
+        heading: 'Inspiration & Exploration',
         blocks: [
           {
             kind: 'paragraph',
@@ -413,11 +399,19 @@ export const projects: Project[] = [
             kind: 'paragraph',
             text: 'Those three ideas became the filter every feature had to pass through for the rest of the sprint.',
           },
+          {
+            kind: 'paragraph',
+            text: 'Twenty-four hours meant working in a tight loop: define the problem, sketch fast, get it in front of teammates, adjust, repeat. We moved from rough problem framing to low-fidelity wireframes within the first few hours, then spent the rest of the sprint trading feedback in real time and pushing the interface toward something we could actually present.',
+          },
+          {
+            kind: 'paragraph',
+            text: 'There was no room for a decision to sit unchallenged for long. If something wasn’t working, we heard about it within the hour, not the next sprint cycle.',
+          },
         ],
       },
       {
         type: 'process',
-        heading: 'The Solution',
+        heading: 'Design Decisions',
         blocks: [
           { kind: 'paragraph', text: 'We landed on five features, each answering a specific piece of the problem.' },
           { kind: 'heading', text: 'Real-Time Song Voting', level: 3 },
@@ -464,16 +458,16 @@ export const projects: Project[] = [
         ],
       },
       {
-        type: 'iterations',
-        heading: 'Design Process',
+        type: 'behindTheDesign',
+        heading: 'My Role',
         blocks: [
           {
             kind: 'paragraph',
-            text: 'Twenty-four hours meant working in a tight loop: define the problem, sketch fast, get it in front of teammates, adjust, repeat. We moved from rough problem framing to low-fidelity wireframes within the first few hours, then spent the rest of the sprint trading feedback in real time and pushing the interface toward something we could actually present.',
+            text: 'I worked as part of a three-person team with Victoria Leliveld and Amrit Nannar, across research, ideation, interaction design, and the final high-fidelity screens.',
           },
           {
             kind: 'paragraph',
-            text: 'There was no room for a decision to sit unchallenged for long. If something wasn’t working, we heard about it within the hour, not the next sprint cycle.',
+            text: 'A 24-hour sprint doesn’t leave room for precious decision-making. We had to choose a direction fast, commit to it, and keep refining instead of restarting.',
           },
         ],
       },
@@ -572,22 +566,8 @@ export const projects: Project[] = [
         ],
       },
       {
-        type: 'behindTheDesign',
-        heading: 'My Role',
-        blocks: [
-          {
-            kind: 'paragraph',
-            text: 'I worked on this as part of a four-person team with Mona Eletr, Aleena Rashid, and Affan Arshad, contributing to product strategy, interaction design, interface design, and the high-fidelity prototype.',
-          },
-          {
-            kind: 'paragraph',
-            text: 'My focus sat at the intersection of the two: shaping how the experience actually worked, and how it looked and felt on screen.',
-          },
-        ],
-      },
-      {
         type: 'insights',
-        heading: 'Key Insight',
+        heading: 'Inspiration & Exploration',
         blocks: [
           {
             kind: 'paragraph',
@@ -597,11 +577,19 @@ export const projects: Project[] = [
             kind: 'paragraph',
             text: 'Reframing the challenge from censorship to control changed the direction of the whole project: this was never about deciding what people should watch, only about giving them a way to choose how they watched it. That reframe is what made the solution feel inclusive instead of restrictive.',
           },
+          {
+            kind: 'paragraph',
+            text: 'Designing around a sensitive subject meant a lot of the real work happened before any screens got drawn. We had to agree as a team on language, tone, and where the line was between helpful and presumptuous. Once that foundation felt right, the interaction design followed: how a viewer turns the mode on, how a skip is signaled, how much of a summary is enough without becoming a spoiler in itself.',
+          },
+          {
+            kind: 'paragraph',
+            text: 'Every round of feedback came back to the same question: does this feel like it’s respecting the viewer’s choice, or making one for them? That question shaped more of the final interface than any single feature did.',
+          },
         ],
       },
       {
         type: 'process',
-        heading: 'The Solution',
+        heading: 'Design Decisions',
         blocks: [
           { kind: 'paragraph', text: 'Four decisions defined the concept.' },
           { kind: 'heading', text: 'Optional Viewing Mode', level: 3 },
@@ -632,15 +620,6 @@ export const projects: Project[] = [
             kind: 'paragraph',
             text: 'Transitions were designed to feel calm, not clinical: a soft fade and a brief summary card, rather than an abrupt jump cut that draws more attention to the skip than the scene itself would have.',
           },
-        ],
-      },
-      {
-        // No exact section type fits "how the concept mechanically works" —
-        // reusing 'research' since, like Markaz, the heading is what carries
-        // the meaning here, not the underlying type key.
-        type: 'research',
-        heading: 'How It Works',
-        blocks: [
           {
             kind: 'paragraph',
             text: 'Close the Curtain is a concept, not a working product. The prototype demonstrates the intended experience rather than a production implementation. As we designed it, the intended flow works in four steps.',
@@ -657,16 +636,16 @@ export const projects: Project[] = [
         ],
       },
       {
-        type: 'iterations',
-        heading: 'Design Process',
+        type: 'behindTheDesign',
+        heading: 'My Role',
         blocks: [
           {
             kind: 'paragraph',
-            text: 'Designing around a sensitive subject meant a lot of the real work happened before any screens got drawn. We had to agree as a team on language, tone, and where the line was between helpful and presumptuous. Once that foundation felt right, the interaction design followed: how a viewer turns the mode on, how a skip is signaled, how much of a summary is enough without becoming a spoiler in itself.',
+            text: 'I worked on this as part of a four-person team with Mona Eletr, Aleena Rashid, and Affan Arshad, contributing to product strategy, interaction design, interface design, and the high-fidelity prototype.',
           },
           {
             kind: 'paragraph',
-            text: 'Every round of feedback came back to the same question: does this feel like it’s respecting the viewer’s choice, or making one for them? That question shaped more of the final interface than any single feature did.',
+            text: 'My focus sat at the intersection of the two: shaping how the experience actually worked, and how it looked and felt on screen.',
           },
         ],
       },
@@ -726,6 +705,10 @@ export const projects: Project[] = [
     },
     year: '2025',
     isConfidential: false,
+    // Held back — flip to true (or remove this line) to bring it back.
+    // Route/content stay intact; this just hides it from the public grid,
+    // featured pick, and next-project cycling.
+    isPublished: false,
     award: '🥉 3rd Place',
     links: [
       {
