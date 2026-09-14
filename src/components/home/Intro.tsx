@@ -1,7 +1,7 @@
 import { hero } from '../../data/siteContent'
 import { Bounded } from './Bounded'
 import nameGraphic from '../../assets/images/afeefa-malik-name-pink.png'
-import polaroidPhoto from '../../assets/images/polaroid.png'
+import polaroidPhoto from '../../assets/images/polaroid-pic.png'
 
 /**
  * Intro — the name-and-portrait block directly under the floral hero.
