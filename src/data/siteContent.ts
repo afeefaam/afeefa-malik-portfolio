@@ -265,3 +265,17 @@ export const socialLinks: SocialLink[] = [
   { label: 'GitHub', href: 'https://github.com/afeefaam' },
   { label: 'Resume', href: 'https://drive.google.com/file/d/1Q0eInFTyBjdOsowdtf_6iGy5pUDFAH3Z/view?usp=sharing' },
 ]
+
+/**
+ * A secondary, external Canva portfolio (marketing/visual/event-branding
+ * work) — kept out of `homeCaseStudies` on purpose so it never renders as
+ * a UX case study; MarketingPortfolioCard is its own, visibly-external
+ * card instead.
+ */
+export const marketingPortfolio = {
+  title: 'Marketing Portfolio',
+  description:
+    'A collection of social campaigns, event branding, visual design, and marketing work.',
+  cta: 'View Marketing Portfolio',
+  href: 'https://www.canva.com/design/DAGxRuRSs4w/3DMRkYfvDd8Hf6waOP1Hcg/view?utm_content=DAGxRuRSs4w&utm_campaign=designshare&utm_medium=link&utm_source=viewer',
+}

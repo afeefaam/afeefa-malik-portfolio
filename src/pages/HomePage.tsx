@@ -7,6 +7,7 @@ import { Hero } from '../components/home/Hero'
 import { HomeFooter } from '../components/home/HomeFooter'
 import { HomeNav } from '../components/home/HomeNav'
 import { Intro } from '../components/home/Intro'
+import { MarketingPortfolioCard } from '../components/home/MarketingPortfolioCard'
 import { PageFrame } from '../components/layout/PageFrame'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useScrollToHash } from '../hooks/useScrollToHash'
@@ -28,6 +29,7 @@ export default function HomePage() {
         <Intro />
         <Capabilities />
         <CaseStudies />
+        <MarketingPortfolioCard />
         <ExperienceTimeline />
         <AboutMe />
         <Contact />
