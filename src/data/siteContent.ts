@@ -263,7 +263,7 @@ export const socialLinks: SocialLink[] = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/afeefamalik' },
   { label: 'Behance', href: 'https://www.behance.net/afeefamalik' },
   { label: 'GitHub', href: 'https://github.com/afeefaam' },
-  { label: 'Resume', href: 'https://drive.google.com/file/d/1Q0eInFTyBjdOsowdtf_6iGy5pUDFAH3Z/view?usp=sharing' },
+  { label: 'Resume', href: 'https://drive.google.com/file/d/14tFLR4EYUHG24GA7m1iDPrKzkPOLsapy/view?usp=sharing' },
 ]
 
 /**
