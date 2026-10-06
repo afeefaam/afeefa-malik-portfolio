@@ -19,6 +19,9 @@ export default defineConfig({
     // not aggressive compression — this is a transfer-size fix, not a
     // quality trade-off.
     ViteImageOptimizer({
+      // PNG `quality` quantizes to a 256-colour palette, which visibly dulls
+      // photographic PNGs — ship the polaroid portraits untouched.
+      exclude: /polaroid/i,
       jpg: { quality: 80 },
       jpeg: { quality: 80 },
       png: { quality: 80 },
